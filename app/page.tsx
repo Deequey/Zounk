@@ -43,6 +43,22 @@ export default async function Home() {
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Link
+                    href="/bitwa"
+                    className="flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 hover:shadow dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
+                  >
+                    <span className="text-3xl" aria-hidden>
+                      ⚔️
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">
+                        Bitwa
+                      </h3>
+                      <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                        Porównaj z kimś top artystów →
+                      </p>
+                    </div>
+                  </Link>
+                  <Link
                     href="/statystyki/artysci"
                     className="flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 hover:shadow dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
                   >
