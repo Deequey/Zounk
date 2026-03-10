@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
-import { cookies } from "next/headers";
 
 export async function GET(request: NextRequest) {
-  const cookieStore = await cookies();
-  cookieStore.delete("spotify_access_token");
-  cookieStore.delete("spotify_refresh_token");
-  const url = request.nextUrl.origin;
-  return NextResponse.redirect(new URL("/", url));
+  // Origin z requestu (na Vercelu musi być ta sama domena)
+  const origin = request.nextUrl.origin;
+  const res = NextResponse.redirect(new URL("/", origin));
+
+  // Czyścimy ciasteczka w tej samej odpowiedzi co redirect (opcje jak przy ustawianiu)
+  const isProd = process.env.NODE_ENV === "production";
+  const clearOpts = { path: "/", maxAge: 0, sameSite: "lax" as const, secure: isProd };
+  res.cookies.set("spotify_access_token", "", clearOpts);
+  res.cookies.set("spotify_refresh_token", "", clearOpts);
+
+  return res;
 }
