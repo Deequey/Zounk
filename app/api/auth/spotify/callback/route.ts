@@ -1,7 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
-import { cookies } from "next/headers";
 
 const SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token";
+
+const isProd = process.env.NODE_ENV === "production";
+const cookieOpts = (maxAge: number) => ({
+  httpOnly: true,
+  secure: isProd,
+  sameSite: "lax" as const,
+  path: "/",
+  maxAge,
+});
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -62,29 +70,14 @@ export async function GET(request: NextRequest) {
     token_type: string;
   };
 
-  const cookieStore = await cookies();
-  const maxAge = data.expires_in; // sekundy
+  const maxAge = data.expires_in;
+  const res = NextResponse.redirect(new URL("/", origin));
 
-  const isProd = process.env.NODE_ENV === "production";
-  cookieStore.set("spotify_access_token", data.access_token, {
-    httpOnly: true,
-    secure: isProd,
-    sameSite: "lax",
-    maxAge,
-    path: "/",
-  });
-
+  // Ciasteczka ustawiane na tej samej odpowiedzi co redirect (na Vercelu cookies() nie zawsze trafia do odpowiedzi)
+  res.cookies.set("spotify_access_token", data.access_token, cookieOpts(maxAge));
   if (data.refresh_token) {
-    cookieStore.set("spotify_refresh_token", data.refresh_token, {
-      httpOnly: true,
-      secure: isProd,
-      sameSite: "lax",
-      maxAge: 60 * 60 * 24 * 365, // 1 rok
-      path: "/",
-    });
+    res.cookies.set("spotify_refresh_token", data.refresh_token, cookieOpts(60 * 60 * 24 * 365));
   }
 
-  // Przekierowanie na stronę główną – używamy origin z SPOTIFY_REDIRECT_URI,
-  // żeby użytkownik wylądował pod tym samym adresem co ciasteczka
-  return NextResponse.redirect(new URL("/", origin));
+  return res;
 }

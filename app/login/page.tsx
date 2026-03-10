@@ -56,6 +56,9 @@ export default async function LoginPage({
             {" "}W Vercel (env) ustaw SPOTIFY_REDIRECT_URI na ten sam adres.
           </p>
         )}
+        <p className="mt-2 text-center text-xs text-zinc-500">
+          Link z Messengera/WhatsApp? Otwórz w Safari lub Chrome – przeglądarka w aplikacji często nie zapisuje logowania.
+        </p>
 
         <Link
           href="/"
