@@ -16,12 +16,12 @@ export async function Header() {
             Zalogowany jako{" "}
             <strong className="text-zinc-900 dark:text-zinc-100">{user.name}</strong>
           </span>
-          <Link
+          <a
             href="/api/auth/logout"
             className="rounded-full bg-zinc-200 px-4 py-2 text-sm font-medium text-zinc-800 transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-600"
           >
             Wyloguj
-          </Link>
+          </a>
         </div>
       ) : (
         <Link

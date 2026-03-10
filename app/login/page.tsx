@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { headers } from "next/headers";
 
 const SPOTIFY_AUTH_URL = "/api/auth/spotify";
 
@@ -16,6 +17,10 @@ export default async function LoginPage({
 }) {
   const { error } = await searchParams;
   const errorMsg = error ? (ERROR_MSG[error] ?? `Błąd: ${error}`) : null;
+  const headersList = await headers();
+  const host = headersList.get("x-forwarded-host") ?? headersList.get("host") ?? "";
+  const proto = headersList.get("x-forwarded-proto") ?? "https";
+  const redirectUri = host ? `${proto}://${host}/api/auth/spotify/callback` : "";
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-zinc-950 px-4">
@@ -44,10 +49,13 @@ export default async function LoginPage({
         <p className="mt-6 text-center text-xs text-zinc-500">
           Przekierujemy Cię do Spotify w celu autoryzacji.
         </p>
-        <p className="mt-3 text-center text-xs text-zinc-600">
-          Na Vercelu: w Spotify Dashboard dodaj dokładnie ten adres w Redirect URIs:{" "}
-          <strong className="break-all">[twoja-domena]/api/auth/spotify/callback</strong>
-        </p>
+        {redirectUri && (
+          <p className="mt-3 text-center text-xs text-zinc-600">
+            W Spotify Dashboard → Redirect URIs wklej dokładnie:{" "}
+            <strong className="break-all">{redirectUri}</strong>
+            {" "}W Vercel (env) ustaw SPOTIFY_REDIRECT_URI na ten sam adres.
+          </p>
+        )}
 
         <Link
           href="/"

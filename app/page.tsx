@@ -26,12 +26,12 @@ export default async function Home() {
                 <p className="mb-4 text-zinc-600 dark:text-zinc-400">
                   Zalogowany jako <strong className="text-zinc-900 dark:text-zinc-100">{user.name}</strong> (Spotify).
                 </p>
-                <Link
+                <a
                   href="/api/auth/logout"
                   className="inline-flex rounded-full bg-zinc-200 px-4 py-2 text-sm font-medium text-zinc-800 transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-600"
                 >
                   Wyloguj się
-                </Link>
+                </a>
               </div>
 
               <section className="space-y-4">
@@ -42,9 +42,8 @@ export default async function Home() {
                   Ostatnie 4 tygodnie – wybierz kategorię:
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <Link
+                  <a
                     href="/bitwa"
-                    prefetch={false}
                     className="flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 hover:shadow dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
                   >
                     <span className="text-3xl" aria-hidden>
@@ -58,10 +57,9 @@ export default async function Home() {
                         Porównaj z kimś top artystów →
                       </p>
                     </div>
-                  </Link>
-                  <Link
+                  </a>
+                  <a
                     href="/statystyki/artysci"
-                    prefetch={false}
                     className="flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 hover:shadow dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
                   >
                     <span className="text-3xl" aria-hidden>
@@ -75,10 +73,9 @@ export default async function Home() {
                         Zobacz listę →
                       </p>
                     </div>
-                  </Link>
-                  <Link
+                  </a>
+                  <a
                     href="/statystyki/utwory"
-                    prefetch={false}
                     className="flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 hover:shadow dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
                   >
                     <span className="text-3xl" aria-hidden>
@@ -92,7 +89,7 @@ export default async function Home() {
                         Zobacz listę →
                       </p>
                     </div>
-                  </Link>
+                  </a>
                 </div>
               </section>
             </>
