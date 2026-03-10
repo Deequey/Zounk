@@ -65,9 +65,10 @@ export async function GET(request: NextRequest) {
   const cookieStore = await cookies();
   const maxAge = data.expires_in; // sekundy
 
+  const isProd = process.env.NODE_ENV === "production";
   cookieStore.set("spotify_access_token", data.access_token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: isProd,
     sameSite: "lax",
     maxAge,
     path: "/",
@@ -76,7 +77,7 @@ export async function GET(request: NextRequest) {
   if (data.refresh_token) {
     cookieStore.set("spotify_refresh_token", data.refresh_token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: isProd,
       sameSite: "lax",
       maxAge: 60 * 60 * 24 * 365, // 1 rok
       path: "/",

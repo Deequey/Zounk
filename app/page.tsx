@@ -44,6 +44,7 @@ export default async function Home() {
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Link
                     href="/bitwa"
+                    prefetch={false}
                     className="flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 hover:shadow dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
                   >
                     <span className="text-3xl" aria-hidden>
@@ -60,6 +61,7 @@ export default async function Home() {
                   </Link>
                   <Link
                     href="/statystyki/artysci"
+                    prefetch={false}
                     className="flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 hover:shadow dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
                   >
                     <span className="text-3xl" aria-hidden>
@@ -76,6 +78,7 @@ export default async function Home() {
                   </Link>
                   <Link
                     href="/statystyki/utwory"
+                    prefetch={false}
                     className="flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 hover:shadow dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
                   >
                     <span className="text-3xl" aria-hidden>
