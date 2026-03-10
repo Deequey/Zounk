@@ -8,21 +8,24 @@ export async function GET(request: NextRequest) {
   const code = searchParams.get("code");
   const error = searchParams.get("error");
 
+  const redirectUri = process.env.SPOTIFY_REDIRECT_URI;
+  const origin = redirectUri ? new URL(redirectUri).origin : request.nextUrl.origin;
+
   if (error) {
-    const errorUrl = new URL("/login", request.url);
+    const errorUrl = new URL("/login", origin);
     errorUrl.searchParams.set("error", error);
     return NextResponse.redirect(errorUrl);
   }
 
   if (!code) {
-    return NextResponse.redirect(new URL("/login?error=no_code", request.url));
+    return NextResponse.redirect(new URL("/login?error=no_code", origin));
   }
 
   const clientId = process.env.SPOTIFY_CLIENT_ID;
   const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
-  const redirectUri = process.env.SPOTIFY_REDIRECT_URI;
+  const redirectUriForToken = process.env.SPOTIFY_REDIRECT_URI;
 
-  if (!clientId || !clientSecret || !redirectUri) {
+  if (!clientId || !clientSecret || !redirectUriForToken) {
     return NextResponse.json(
       { error: "Brak konfiguracji Spotify w .env" },
       { status: 500 }
@@ -32,7 +35,7 @@ export async function GET(request: NextRequest) {
   const body = new URLSearchParams({
     grant_type: "authorization_code",
     code,
-    redirect_uri: redirectUri,
+    redirect_uri: redirectUriForToken,
   });
 
   const response = await fetch(SPOTIFY_TOKEN_URL, {
@@ -48,7 +51,7 @@ export async function GET(request: NextRequest) {
     const err = await response.text();
     console.error("Spotify token error:", response.status, err);
     return NextResponse.redirect(
-      new URL("/login?error=token_exchange_failed", request.url)
+      new URL("/login?error=token_exchange_failed", origin)
     );
   }
 
@@ -80,8 +83,7 @@ export async function GET(request: NextRequest) {
     });
   }
 
-  // Przekierowanie na stronę główną – używamy origin z SPOTIFY_REDIRECT_URI (np. 127.0.0.1),
-  // żeby użytkownik wylądował pod tym samym adresem co ciasteczka (localhost ≠ 127.0.0.1 dla cookies)
-  const appOrigin = new URL(redirectUri).origin;
-  return NextResponse.redirect(new URL("/", appOrigin));
+  // Przekierowanie na stronę główną – używamy origin z SPOTIFY_REDIRECT_URI,
+  // żeby użytkownik wylądował pod tym samym adresem co ciasteczka
+  return NextResponse.redirect(new URL("/", origin));
 }

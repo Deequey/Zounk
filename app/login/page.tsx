@@ -2,16 +2,36 @@ import Link from "next/link";
 
 const SPOTIFY_AUTH_URL = "/api/auth/spotify";
 
-export default function LoginPage() {
+const ERROR_MSG: Record<string, string> = {
+  access_denied: "Anulowano logowanie w Spotify.",
+  invalid_request: "Błąd żądania. Sprawdź, czy w Spotify Dashboard w Redirect URIs jest dokładnie adres tej strony + /api/auth/spotify/callback (np. https://twoja-domena.vercel.app/api/auth/spotify/callback).",
+  no_code: "Spotify nie przekazało kodu. Spróbuj ponownie.",
+  token_exchange_failed: "Nie udało się wymienić kodu na token. Sprawdź SPOTIFY_REDIRECT_URI w Vercel – musi być dokładnie ten sam adres co w Spotify Dashboard.",
+};
+
+export default async function LoginPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ error?: string }>;
+}) {
+  const { error } = await searchParams;
+  const errorMsg = error ? (ERROR_MSG[error] ?? `Błąd: ${error}`) : null;
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-zinc-950 px-4">
       <div className="w-full max-w-sm rounded-2xl border border-zinc-800 bg-zinc-900/80 p-8 shadow-xl backdrop-blur">
         <h1 className="mb-2 text-center text-2xl font-bold text-white">
           Zaloguj się
         </h1>
-        <p className="mb-8 text-center text-sm text-zinc-400">
+        <p className="mb-6 text-center text-sm text-zinc-400">
           Połącz konto Spotify, aby kontynuować
         </p>
+
+        {errorMsg && (
+          <div className="mb-6 rounded-lg border border-red-500/50 bg-red-950/50 px-4 py-3 text-sm text-red-200">
+            {errorMsg}
+          </div>
+        )}
 
         <a
           href={SPOTIFY_AUTH_URL}
@@ -25,7 +45,8 @@ export default function LoginPage() {
           Przekierujemy Cię do Spotify w celu autoryzacji.
         </p>
         <p className="mt-3 text-center text-xs text-zinc-600">
-          Ważne: otwieraj stronę pod adresem z .env (np. <strong>http://127.0.0.1:3000</strong>), tak jak w Redirect URI w Spotify – inaczej po logowaniu nie zobaczysz sesji.
+          Na Vercelu: w Spotify Dashboard dodaj dokładnie ten adres w Redirect URIs:{" "}
+          <strong className="break-all">[twoja-domena]/api/auth/spotify/callback</strong>
         </p>
 
         <Link
