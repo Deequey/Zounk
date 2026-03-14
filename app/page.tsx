@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Header } from "@/app/Header";
 import { getSpotifyUserAndToken } from "@/lib/spotify";
 import { SpotifyIcon } from "./SpotifyIcon";
+import  LoginButton  from "./components/LoginButton";
 
 // Zawsze świeża strona – żeby cookies po logowaniu były od razu widoczne
 export const dynamic = "force-dynamic";
@@ -92,6 +93,11 @@ export default async function Home() {
                   </a>
                 </div>
               </section>
+
+              <section>
+                <h1>CWEL CWEL CWEL</h1>
+                <LoginButton />
+              </section>
             </>
           ) : (
             <div className="flex flex-col items-center justify-center py-16">
@@ -106,6 +112,9 @@ export default async function Home() {
                   <SpotifyIcon className="h-6 w-6" />
                   Zaloguj przez Spotify
                 </Link>
+
+                <h1>CWEL CWEL CWEL</h1>
+                <LoginButton />
               </div>
             </div>
           )}
