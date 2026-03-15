@@ -7,11 +7,8 @@ export default function HomePage() {
       <Nav />
       <main className="mx-auto max-w-3xl px-4 py-12">
         <h1 className="mb-4 text-3xl font-bold text-zinc-900 dark:text-zinc-100">
-          Strona główna
+          Zounk
         </h1>
-        <p className="mb-8 text-zinc-600 dark:text-zinc-400">
-          Witaj. To podstawowy szablon Next.js z kilkoma podstronami.
-        </p>
         <div className="flex flex-wrap gap-4">
           <Link
             href="/o-nas"
@@ -30,6 +27,12 @@ export default function HomePage() {
             className="rounded-lg bg-zinc-200 px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-300 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
           >
             Blog
+          </Link>
+          <Link
+            href="/stats"
+            className="rounded-lg bg-zinc-200 px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-300 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
+          >
+            Stats
           </Link>
         </div>
       </main>

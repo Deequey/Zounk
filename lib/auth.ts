@@ -1,3 +1,4 @@
+// lib/auth.ts
 import NextAuth from "next-auth"
 import Spotify from "next-auth/providers/spotify"
 
@@ -9,6 +10,17 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       authorization: "https://accounts.spotify.com/authorize?scope=user-read-email,user-top-read"
     }),
   ],
-  // To zapewnia poprawne działanie na różnych domenach
-  trustHost: true 
+  callbacks: {
+    async jwt({ token, account }) {
+      if (account) {
+        token.accessToken = account.access_token
+      }
+      return token
+    },
+    async session({ session, token }) {
+      // @ts-ignore
+      session.accessToken = token.accessToken
+      return session
+    },
+  },
 })

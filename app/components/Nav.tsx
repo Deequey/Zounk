@@ -7,6 +7,7 @@ const links = [
   { href: "/o-nas", label: "O nas" },
   { href: "/kontakt", label: "Kontakt" },
   { href: "/blog", label: "Blog" },
+  { href: "/stats", label: "Stats" },
 ];
 
 // Zmieniamy funkcję na 'async'
