@@ -174,28 +174,16 @@ Contributions are what make the open-source community such an amazing place to l
 - [ ] **Concert Integration** - Live music recommendations
 - [ ] **API Access** - Public API for developers
 
-## 🐛 Known Issues
-
-- Mobile navigation needs improvement
-- Some animations may be slow on older devices
-- Spotify rate limiting on heavy usage
-
 ## 📄 Licencja
 
 Ten projekt jest licencjonowany pod MIT License - zobacz [LICENSE](LICENSE) file dla szczegółów.
 
-## 🙏 Podziękowania
-
-- **Spotify** - Za amazing API i dane muzyczne
-- **Vercel** - Za hosting i Next.js
-- **Tailwind CSS** - Za amazing CSS framework
-- **Wspólnocie** - Za wsparcie i feedback
 
 ## 📞 Kontakt
 
-- **Project**: [Zounk](https://zounk.pl)
-- **Author**: [Twoje Imię](https://github.com/twoj-username)
-- **Email**: kontakt@zounk.pl
+- **Project**: [Zounk](https://zounk.vercel.app)
+- **Author**: [Deequey](https://github.com/deequey)
+- **Email**: docentux333@gmail.com
 
 ---
 
