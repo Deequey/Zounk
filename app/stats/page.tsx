@@ -61,16 +61,32 @@ export default async function StatsPage() {
     
     const genreMap: Record<string, number> = {};
     
-    // Pobierz gatunki TYLKO z TheAudioDB dla artystów z topki Spotify
+    // OPTIMALIZACJA: Równoległe requesty do TheAudioDB dla 15 artystów
     if (topArtistsData.items?.length > 0) {
-        for (const artist of topArtistsData.items.slice(0, 50)) { // Więcej artystów dla lepszych statystyk
-            const genres = await getGenresFromAudioDB(artist.name);
-            if (genres && genres.length > 0) {
-                genres.forEach((g: string) => {
-                    genreMap[g] = (genreMap[g] || 0) + 1;
-                });
+        console.log("Rozpoczynam równoległe pobieranie gatunków...");
+        const startTime = Date.now();
+        
+        // Przygotuj Promise'y dla 15 artystów (balans szybkość/jakość)
+        const genrePromises = topArtistsData.items.slice(0, 15).map(async (artist: any, index: number) => {
+            try {
+                const genres = await getGenresFromAudioDB(artist.name);
+                if (genres && genres.length > 0) {
+                    genres.forEach((g: string) => {
+                        genreMap[g] = (genreMap[g] || 0) + 1;
+                    });
+                }
+                return { artist: artist.name, genres, success: true };
+            } catch (error) {
+                return { artist: artist.name, genres: [], success: false };
             }
-        }
+        });
+        
+        // Wykonaj wszystkie requesty równolegle
+        const results = await Promise.all(genrePromises);
+        
+        const endTime = Date.now();
+        console.log(`✅ Ukończono w ${endTime - startTime}ms`);
+        console.log("Wyniki:", results.map(r => `${r.artist}: ${r.success ? r.genres.join(',') : 'BŁĄD'}`));
     }
   
     // Stwórz ranking najpopularniejszych gatunków z liczbą wystąpień
