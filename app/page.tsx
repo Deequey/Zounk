@@ -55,36 +55,134 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* FEATURES GRID */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8 rounded-[2.5rem] shadow-sm group hover:scale-105 transition-all duration-300">
-            <div className="w-12 h-12 bg-[#1DB954] rounded-xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-300">
-              <span className="text-2xl">🎵</span>
-            </div>
-            <h3 className="text-xl font-black mb-4 uppercase italic tracking-tighter">Top Artystów</h3>
-            <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-              Odkryj swoich najczęściej słuchanych artystów i śledź zmiany w Twoich gustach muzycznych.
+        {/* FEATURES SECTION */}
+        <section className="mb-16">
+          <div className="text-center mb-12">
+            <p className="text-[#1DB954] font-mono text-xs font-bold uppercase tracking-[0.4em] mb-3 opacity-70">
+              Funkcje
             </p>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter italic uppercase leading-none">
+              Co Oferujemy.
+            </h2>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8 rounded-[2.5rem] shadow-sm group hover:scale-105 transition-all duration-300">
-            <div className="w-12 h-12 bg-[#1DB954] rounded-xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-300">
-              <span className="text-2xl">📊</span>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* FEATURE 1 - TOP ARTYSTÓW */}
+            <div className="group relative bg-zinc-950 dark:bg-zinc-50 text-white dark:text-black p-8 rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:scale-105">
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-16 h-16 bg-[#1DB954] rounded-2xl flex items-center justify-center transition-transform duration-300">
+                    <span className="text-3xl font-black text-black">01</span>
+                  </div>
+                  <span className="text-4xl font-black text-[#1DB954] opacity-20 group-hover:opacity-40 transition-opacity">MUSIC</span>
+                </div>
+                <h3 className="text-2xl font-black mb-4 uppercase italic tracking-tighter">Top Artystów</h3>
+                <p className="text-sm opacity-80 mb-6 leading-relaxed">
+                  Odkryj swoich najczęściej słuchanych artystów. Analizuj trendy, śledź zmiany i znajdzij nowych wykonawców dopasowanych do Twojego gustu.
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
+                      <span className="text-xs font-black">1</span>
+                    </div>
+                    <span className="text-sm font-black uppercase tracking-tighter opacity-70">Real-time data</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
+                      <span className="text-xs font-black">2</span>
+                    </div>
+                    <span className="text-sm font-black uppercase tracking-tighter opacity-70">Trend analysis</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
+                      <span className="text-xs font-black">3</span>
+                    </div>
+                    <span className="text-sm font-black uppercase tracking-tighter opacity-70">Personalized insights</span>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -bottom-20 -right-20 text-[15rem] font-black text-white/5 dark:text-black/5 pointer-events-none select-none italic tracking-tighter">
+                MUSIC
+              </div>
             </div>
-            <h3 className="text-xl font-black mb-4 uppercase italic tracking-tighter">Analiza Gatunków</h3>
-            <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-              Poznaj swoje ulubione gatunki muzyczne i zobacz jak ewoluują Twoje preferencje.
-            </p>
-          </div>
 
-          <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8 rounded-[2.5rem] shadow-sm group hover:scale-105 transition-all duration-300">
-            <div className="w-12 h-12 bg-[#1DB954] rounded-xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-300">
-              <span className="text-2xl">🎯</span>
+            {/* FEATURE 2 - ANALIZA GATUNKÓW */}
+            <div className="group relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8 rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:scale-105">
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-16 h-16 bg-[#1DB954] rounded-2xl flex items-center justify-center transition-transform duration-300">
+                    <span className="text-3xl font-black text-black">02</span>
+                  </div>
+                  <span className="text-4xl font-black text-[#1DB954] opacity-20 group-hover:opacity-40 transition-opacity">DATA</span>
+                </div>
+                <h3 className="text-2xl font-black mb-4 uppercase italic tracking-tighter">Analiza Gatunków</h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
+                  Poznaj swoje ulubione gatunki muzyczne. Zobacz jak ewoluują Twoje preferencje i odkryj nowe style muzyczne.
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-[#1DB954]/10 rounded-lg flex items-center justify-center">
+                      <span className="text-xs font-black text-[#1DB954]">A</span>
+                    </div>
+                    <span className="text-sm font-black uppercase tracking-tighter text-zinc-700 dark:text-zinc-300">Audio features</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-[#1DB954]/10 rounded-lg flex items-center justify-center">
+                      <span className="text-xs font-black text-[#1DB954]">G</span>
+                    </div>
+                    <span className="text-sm font-black uppercase tracking-tighter text-zinc-700 dark:text-zinc-300">Genre mapping</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-[#1DB954]/10 rounded-lg flex items-center justify-center">
+                      <span className="text-xs font-black text-[#1DB954]">E</span>
+                    </div>
+                    <span className="text-sm font-black uppercase tracking-tighter text-zinc-700 dark:text-zinc-300">Evolution tracking</span>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -bottom-20 -right-20 text-[15rem] font-black text-zinc-100 dark:text-zinc-800 pointer-events-none select-none italic tracking-tighter">
+                DATA
+              </div>
             </div>
-            <h3 className="text-xl font-black mb-4 uppercase italic tracking-tighter">Personalizacja</h3>
-            <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-              Dostosuj swoje doświadczenie i otrzymuj rekomendacje dopasowane do Twojego stylu.
-            </p>
+
+            {/* FEATURE 3 - PERSONALIZACJA */}
+            <div className="group relative bg-[#1DB954] text-black p-8 rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:scale-105 shadow-xl shadow-[#1db954]/20">
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center transition-transform duration-300">
+                    <span className="text-3xl font-black text-white">03</span>
+                  </div>
+                  <span className="text-4xl font-black opacity-20 group-hover:opacity-40 transition-opacity">AI</span>
+                </div>
+                <h3 className="text-2xl font-black mb-4 uppercase italic tracking-tighter">Personalizacja</h3>
+                <p className="text-sm opacity-80 mb-6 leading-relaxed">
+                  Dostosuj swoje doświadczenie. Otrzymuj rekomendacje dopasowane do Twojego unikalnego stylu muzycznego.
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-black/10 rounded-lg flex items-center justify-center">
+                      <span className="text-xs font-black">AI</span>
+                    </div>
+                    <span className="text-sm font-black uppercase tracking-tighter opacity-80">Smart recommendations</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-black/10 rounded-lg flex items-center justify-center">
+                      <span className="text-xs font-black">⚡</span>
+                    </div>
+                    <span className="text-sm font-black uppercase tracking-tighter opacity-80">Instant updates</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-black/10 rounded-lg flex items-center justify-center">
+                      <span className="text-xs font-black">🎨</span>
+                    </div>
+                    <span className="text-sm font-black uppercase tracking-tighter opacity-80">Custom interface</span>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -bottom-20 -right-20 text-[15rem] font-black text-black/5 pointer-events-none select-none italic tracking-tighter">
+                AI
+              </div>
+            </div>
           </div>
         </section>
 
