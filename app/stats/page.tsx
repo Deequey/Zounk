@@ -18,6 +18,25 @@ async function getSpotifyData(endpoint: string, accessToken: string, limit: numb
     }
 }
 
+// TheAudioDB API - jedyne źródło gatunków
+async function getGenresFromAudioDB(artistName: string) {
+    try {
+        const apiKey = process.env.AUDIO_DB_API_KEY || '123'; // darmowy klucz
+        const url = `https://www.theaudiodb.com/api/v1/json/${apiKey}/search.php?s=${encodeURIComponent(artistName)}`;
+        
+        const res = await fetch(url);
+        if (!res.ok) return [];
+        
+        const data = await res.json();
+        if (!data.artists || data.artists.length === 0) return [];
+        
+        const artist = data.artists[0];
+        return artist.strGenre ? [artist.strGenre] : [];
+    } catch (error) {
+        return [];
+    }
+}
+
 export default async function StatsPage() {
     const session = await auth();
     const token = (session as any)?.accessToken;
@@ -25,7 +44,7 @@ export default async function StatsPage() {
     if (!token) redirect("/");
   
     const [topArtistsData, topTracksData] = await Promise.all([
-      getSpotifyData("top/artists", token, 30), // Bierzemy 30 dla jeszcze lepszych gatunków
+      getSpotifyData("top/artists", token, 50), // Więcej artystów dla lepszych statystyk
       getSpotifyData("top/tracks", token, 10),
     ]);
 
@@ -41,18 +60,42 @@ export default async function StatsPage() {
     console.log(`POBRANO ARTYSTÓW: ${topArtistsData.items?.length || 0}`);
     
     const genreMap: Record<string, number> = {};
-    topArtistsData.items?.forEach((artist: any) => {
-        artist.genres?.forEach((g: string) => {
-            genreMap[g] = (genreMap[g] || 0) + 1;
-        });
-    });
+    
+    // Pobierz gatunki TYLKO z TheAudioDB dla artystów z topki Spotify
+    if (topArtistsData.items?.length > 0) {
+        for (const artist of topArtistsData.items.slice(0, 50)) { // Więcej artystów dla lepszych statystyk
+            const genres = await getGenresFromAudioDB(artist.name);
+            if (genres && genres.length > 0) {
+                genres.forEach((g: string) => {
+                    genreMap[g] = (genreMap[g] || 0) + 1;
+                });
+            }
+        }
+    }
   
-    const sortedGenres = Object.entries(genreMap)
-        .sort(([, a], [, b]) => b - a)
-        .slice(0, 5)
-        .map(([name]) => name);
+    // Stwórz ranking najpopularniejszych gatunków z liczbą wystąpień
+    const genreEntries = Object.entries(genreMap)
+        .sort(([, a], [, b]) => b - a) // Sortuj po popularności (malejąco)
+        .slice(0, 8); // Top 8 gatunków
+    
+    const sortedGenres = genreEntries.map(([name]) => name);
+    const maxCount = Math.max(...genreEntries.map(([, count]) => count), 1);
 
-    console.log("WYLICZONE GATUNKI:", sortedGenres);
+    console.log("RANKING GATUNKÓW:", sortedGenres);
+    
+    // DEBUG: Pokaż przypisanie gatunków do artystów
+    console.log("\n=== PRZYPISANIE GATUNKÓW DO ARTYSTÓW ===");
+    if (topArtistsData.items?.length > 0) {
+        for (const artist of topArtistsData.items.slice(0, 15)) {
+            const genres = await getGenresFromAudioDB(artist.name);
+            if (genres && genres.length > 0) {
+                console.log(` ${artist.name} → ${genres.join(", ")}`);
+            } else {
+                console.log(` ${artist.name} → BRAK GATUNKU`);
+            }
+        }
+    }
+    console.log("=====================================\n");
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans">
@@ -76,7 +119,7 @@ export default async function StatsPage() {
             </h2>
             <div className="space-y-6">
               {topArtistsData.items?.length > 0 ? (
-                topArtistsData.items.slice(0, 6).map((artist: any, i: number) => (
+                topArtistsData.items.slice(0, 10).map((artist: any, i: number) => (
                   <div key={artist.id} className="flex items-center gap-5 group/item">
                     <span className="text-zinc-300 dark:text-zinc-700 font-black text-lg italic w-6 italic tracking-tighter">{i + 1}</span>
                     <div className="relative h-14 w-14 flex-shrink-0">
@@ -111,20 +154,43 @@ export default async function StatsPage() {
             </div>
           </section>
 
-          {/* TOP GENRES */}
-          <section className="bg-[#1DB954] text-black p-8 rounded-[2.5rem] flex flex-col justify-between min-h-[220px] shadow-xl shadow-[#1db954]/20 relative overflow-hidden">
-            <h2 className="text-[10px] font-black uppercase tracking-[0.3em] mb-4 bg-black text-white self-start px-2 py-1">Gatunki</h2>
-            <div className="flex flex-wrap gap-2.5 relative z-10">
-              {sortedGenres.length > 0 ? (
-                sortedGenres.map((genre) => (
-                  <span key={genre} className="bg-black text-white text-[10px] px-4 py-2 rounded-full font-black uppercase whitespace-nowrap tracking-tighter hover:scale-105 transition-transform cursor-default">
-                    {genre}
-                  </span>
-                ))
-              ) : (
+          {/* TOP GENRES - WYKRES */}
+          <section className="bg-[#1DB954] text-black p-8 rounded-[2.5rem] shadow-xl shadow-[#1db954]/20 relative overflow-hidden">
+            <h2 className="text-[10px] font-black uppercase tracking-[0.3em] mb-6 bg-black text-white self-start px-2 py-1">Gatunki</h2>
+            
+            {genreEntries.length > 0 ? (
+              <div className="space-y-3 relative z-10">
+                {genreEntries.map(([genre, count], index) => {
+                  const percentage = (count / maxCount) * 100;
+                  return (
+                    <div key={genre} className="group">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-[11px] font-black uppercase tracking-tight truncate flex-1">
+                          {genre}
+                        </span>
+                        <span className="text-[10px] font-black ml-2 bg-black/20 px-2 py-0.5 rounded">
+                          {count}
+                        </span>
+                      </div>
+                      <div className="w-full bg-black/20 rounded-full h-2 overflow-hidden">
+                        <div 
+                          className="h-full bg-black rounded-full transition-all duration-1000 ease-out group-hover:bg-black/90"
+                          style={{ 
+                            width: `${percentage}%`,
+                            animationDelay: `${index * 100}ms`
+                          }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="flex items-center justify-center h-32">
                 <p className="text-xs font-black italic opacity-40 uppercase tracking-widest">Brak danych</p>
-              )}
-            </div>
+              </div>
+            )}
+            
             {/* Ozdobne kółko */}
             <div className="absolute top-[-20px] right-[-20px] w-24 h-24 border-[15px] border-black/10 rounded-full" />
           </section>
