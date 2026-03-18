@@ -3,251 +3,185 @@ import { Nav } from "./components/Nav";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans">
+    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans selection:bg-[#1DB954] selection:text-black">
       <Nav />
       
       <main className="mx-auto max-w-6xl px-6 py-12">
-        {/* HERO SECTION */}
-        <section className="min-h-[80vh] flex items-center justify-center relative overflow-hidden">
-          {/* Background decoration */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-[20rem] font-black text-zinc-100 dark:text-zinc-900 italic tracking-tighter opacity-20 select-none">
+        
+        {/* HERO SECTION - MEGA IMPACT */}
+        <section className="min-h-[90vh] flex items-center justify-center relative overflow-hidden">
+          {/* Huge background text */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="text-[22vw] font-black text-zinc-200/50 dark:text-zinc-800/50 italic tracking-tighter select-none leading-none">
               ZOUNK
             </div>
           </div>
           
           <div className="relative z-10 text-center max-w-4xl">
-            <p className="text-[#1DB954] font-mono text-xs font-bold uppercase tracking-[0.4em] mb-6 opacity-70">
-              Discover Your Music
-            </p>
-            <h1 className="text-6xl md:text-8xl font-black tracking-tighter italic uppercase leading-none mb-8">
-              Zounk.
+            <div className="inline-block mb-6 px-4 py-1 border border-[#1DB954] rounded-full">
+              <p className="text-[#1DB954] font-mono text-[10px] font-bold uppercase tracking-[0.4em]">
+                Your Music DNA Unleashed
+              </p>
+            </div>
+            <h1 className="text-7xl md:text-9xl font-black tracking-tighter italic uppercase leading-[0.8] mb-10">
+              Listen.<br/>
+              <span className="text-[#1DB954]">Analyze.</span><br/>
+              Discover.
             </h1>
-            <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mb-12 leading-relaxed max-w-2xl mx-auto">
-              Nowoczesna platforma do analizy Twoich muzycznych preferencji. 
-              Połącz Spotify i odkryj swoje statystyki, top artystów i unikalne rekomendacje.
+            <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mb-12 leading-relaxed max-w-xl mx-auto font-medium">
+              Zounk przekształca Twoje dane ze Spotify w interaktywne doświadczenie. 
+              Poznaj prawdę o swoim guście muzycznym.
             </p>
             
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Link
                 href="/stats"
-                className="group relative bg-[#1DB954] text-black px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-tighter hover:scale-105 transition-all duration-300 shadow-xl shadow-[#1db954]/20"
+                className="group relative bg-[#1DB954] text-black px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-110 transition-all duration-500 shadow-2xl shadow-[#1db954]/40"
               >
-                <span className="flex items-center gap-2">
-                  <span className="text-lg">📊</span>
-                  Zobacz Statystyki
-                  <span className="absolute -right-1 -top-1 opacity-0 transition-all duration-300 group-hover:opacity-100">
-                    <span className="text-xs">+</span>
-                  </span>
-                </span>
+                Połącz ze Spotify
               </Link>
               <Link
                 href="/o-nas"
-                className="group bg-zinc-950 dark:bg-zinc-50 text-white dark:text-black px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-tighter hover:scale-105 transition-all duration-300 shadow-lg"
+                className="group bg-transparent border-2 border-zinc-900 dark:border-zinc-100 text-zinc-900 dark:text-zinc-100 px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-zinc-900 hover:text-white dark:hover:bg-zinc-100 dark:hover:text-black transition-all duration-500"
               >
-                <span className="flex items-center gap-2">
-                  <span className="text-lg">ℹ️</span>
-                  Dowiedz się więcej
-                </span>
+                Nasza Misja
               </Link>
             </div>
           </div>
         </section>
 
-        {/* FEATURES SECTION */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <p className="text-[#1DB954] font-mono text-xs font-bold uppercase tracking-[0.4em] mb-3 opacity-70">
-              Funkcje
+        {/* FEATURES GRID - MODERNIST CARDS */}
+        <section className="mb-32">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 px-4">
+            <div>
+              <h2 className="text-6xl md:text-8xl font-black tracking-tighter italic uppercase leading-none">
+                Features.
+              </h2>
+              <div className="w-32 h-2 bg-[#1DB954] mt-4"></div>
+            </div>
+            <p className="text-zinc-500 max-w-xs font-mono text-xs uppercase tracking-widest">
+              Technologia AI w służbie Twojej biblioteki muzycznej.
             </p>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter italic uppercase leading-none">
-              Co Oferujemy.
-            </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* FEATURE 1 - TOP ARTYSTÓW */}
-            <div className="group relative bg-zinc-950 dark:bg-zinc-50 text-white dark:text-black p-8 rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:scale-105">
+            {/* FEATURE 1 */}
+            <div className="group relative bg-zinc-950 dark:bg-zinc-50 text-white dark:text-black p-12 rounded-[3rem] overflow-hidden transition-all duration-500 hover:-translate-y-4 shadow-2xl">
               <div className="relative z-10">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-[#1DB954] rounded-2xl flex items-center justify-center transition-transform duration-300">
-                    <span className="text-3xl font-black text-black">01</span>
-                  </div>
-                  <span className="text-4xl font-black text-[#1DB954] opacity-20 group-hover:opacity-40 transition-opacity">MUSIC</span>
-                </div>
-                <h3 className="text-2xl font-black mb-4 uppercase italic tracking-tighter">Top Artystów</h3>
-                <p className="text-sm opacity-80 mb-6 leading-relaxed">
-                  Odkryj swoich najczęściej słuchanych artystów. Analizuj trendy, śledź zmiany i znajdzij nowych wykonawców dopasowanych do Twojego gustu.
+                <div className="text-5xl font-black mb-8 opacity-20 group-hover:text-[#1DB954] group-hover:opacity-100 transition-all">01</div>
+                <h3 className="text-3xl font-black mb-6 uppercase italic tracking-tighter leading-none">Top<br/>Artists.</h3>
+                <p className="text-sm opacity-70 mb-8 leading-relaxed font-medium">
+                  Głęboka analiza Twoich najczęściej słuchanych wykonawców w trzech zakresach czasowych.
                 </p>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
-                      <span className="text-xs font-black">1</span>
-                    </div>
-                    <span className="text-sm font-black uppercase tracking-tighter opacity-70">Real-time data</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
-                      <span className="text-xs font-black">2</span>
-                    </div>
-                    <span className="text-sm font-black uppercase tracking-tighter opacity-70">Trend analysis</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
-                      <span className="text-xs font-black">3</span>
-                    </div>
-                    <span className="text-sm font-black uppercase tracking-tighter opacity-70">Personalized insights</span>
-                  </div>
-                </div>
+                <ul className="space-y-3 font-mono text-[10px] uppercase tracking-widest opacity-50">
+                  <li>• Short term (4 weeks)</li>
+                  <li>• Medium term (6 months)</li>
+                  <li>• Long term (Years)</li>
+                </ul>
               </div>
-              <div className="absolute -bottom-20 -right-20 text-[15rem] font-black text-white/5 dark:text-black/5 pointer-events-none select-none italic tracking-tighter">
-                MUSIC
+              <div className="absolute -bottom-10 -right-10 text-[12rem] font-black text-white/5 dark:text-black/5 pointer-events-none select-none italic tracking-tighter">
+                TOP
               </div>
             </div>
 
-            {/* FEATURE 2 - ANALIZA GATUNKÓW */}
-            <div className="group relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8 rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:scale-105">
+            {/* FEATURE 2 */}
+            <div className="group relative bg-[#1DB954] text-black p-12 rounded-[3rem] overflow-hidden transition-all duration-500 hover:-translate-y-4 shadow-xl shadow-[#1db954]/20">
               <div className="relative z-10">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-[#1DB954] rounded-2xl flex items-center justify-center transition-transform duration-300">
-                    <span className="text-3xl font-black text-black">02</span>
-                  </div>
-                  <span className="text-4xl font-black text-[#1DB954] opacity-20 group-hover:opacity-40 transition-opacity">DATA</span>
-                </div>
-                <h3 className="text-2xl font-black mb-4 uppercase italic tracking-tighter">Analiza Gatunków</h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
-                  Poznaj swoje ulubione gatunki muzyczne. Zobacz jak ewoluują Twoje preferencje i odkryj nowe style muzyczne.
+                <div className="text-5xl font-black mb-8 opacity-20 transition-all">02</div>
+                <h3 className="text-3xl font-black mb-6 uppercase italic tracking-tighter leading-none">Genre<br/>DNA.</h3>
+                <p className="text-sm opacity-80 mb-8 leading-relaxed font-medium text-black">
+                  Wizualizacja Twojego ekosystemu gatunkowego. Dowiedz się, co naprawdę definiuje Twoje brzmienie.
                 </p>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-[#1DB954]/10 rounded-lg flex items-center justify-center">
-                      <span className="text-xs font-black text-[#1DB954]">A</span>
-                    </div>
-                    <span className="text-sm font-black uppercase tracking-tighter text-zinc-700 dark:text-zinc-300">Audio features</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-[#1DB954]/10 rounded-lg flex items-center justify-center">
-                      <span className="text-xs font-black text-[#1DB954]">G</span>
-                    </div>
-                    <span className="text-sm font-black uppercase tracking-tighter text-zinc-700 dark:text-zinc-300">Genre mapping</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-[#1DB954]/10 rounded-lg flex items-center justify-center">
-                      <span className="text-xs font-black text-[#1DB954]">E</span>
-                    </div>
-                    <span className="text-sm font-black uppercase tracking-tighter text-zinc-700 dark:text-zinc-300">Evolution tracking</span>
-                  </div>
+                <div className="flex flex-wrap gap-2">
+                   <span className="px-3 py-1 bg-black text-white rounded-full text-[10px] font-black italic uppercase">Vibe Check</span>
+                   <span className="px-3 py-1 bg-black text-white rounded-full text-[10px] font-black italic uppercase">Mapping</span>
                 </div>
               </div>
-              <div className="absolute -bottom-20 -right-20 text-[15rem] font-black text-zinc-100 dark:text-zinc-800 pointer-events-none select-none italic tracking-tighter">
-                DATA
+              <div className="absolute -bottom-10 -right-10 text-[12rem] font-black text-black/5 pointer-events-none select-none italic tracking-tighter">
+                GENRE
               </div>
             </div>
 
-            {/* FEATURE 3 - PERSONALIZACJA */}
-            <div className="group relative bg-[#1DB954] text-black p-8 rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:scale-105 shadow-xl shadow-[#1db954]/20">
+            {/* FEATURE 3 */}
+            <div className="group relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-12 rounded-[3rem] overflow-hidden transition-all duration-500 hover:-translate-y-4 shadow-xl">
               <div className="relative z-10">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center transition-transform duration-300">
-                    <span className="text-3xl font-black text-white">03</span>
-                  </div>
-                  <span className="text-4xl font-black opacity-20 group-hover:opacity-40 transition-opacity">AI</span>
-                </div>
-                <h3 className="text-2xl font-black mb-4 uppercase italic tracking-tighter">Personalizacja</h3>
-                <p className="text-sm opacity-80 mb-6 leading-relaxed">
-                  Dostosuj swoje doświadczenie. Otrzymuj rekomendacje dopasowane do Twojego unikalnego stylu muzycznego.
+                <div className="text-5xl font-black mb-8 opacity-20 group-hover:text-[#1DB954] group-hover:opacity-100 transition-all">03</div>
+                <h3 className="text-3xl font-black mb-6 uppercase italic tracking-tighter leading-none">Smart<br/>Recs.</h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-8 leading-relaxed font-medium">
+                  Rekomendacje oparte na parametrach audio: danceability, energy i valence Twoich utworów.
                 </p>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-black/10 rounded-lg flex items-center justify-center">
-                      <span className="text-xs font-black">AI</span>
-                    </div>
-                    <span className="text-sm font-black uppercase tracking-tighter opacity-80">Smart recommendations</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-black/10 rounded-lg flex items-center justify-center">
-                      <span className="text-xs font-black">⚡</span>
-                    </div>
-                    <span className="text-sm font-black uppercase tracking-tighter opacity-80">Instant updates</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-black/10 rounded-lg flex items-center justify-center">
-                      <span className="text-xs font-black">🎨</span>
-                    </div>
-                    <span className="text-sm font-black uppercase tracking-tighter opacity-80">Custom interface</span>
-                  </div>
+                <div className="w-full h-1 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden">
+                  <div className="w-2/3 h-full bg-[#1DB954] group-hover:w-full transition-all duration-1000"></div>
                 </div>
               </div>
-              <div className="absolute -bottom-20 -right-20 text-[15rem] font-black text-black/5 pointer-events-none select-none italic tracking-tighter">
-                AI
+              <div className="absolute -bottom-10 -right-10 text-[12rem] font-black text-zinc-100 dark:text-zinc-800 pointer-events-none select-none italic tracking-tighter">
+                RECS
               </div>
             </div>
           </div>
         </section>
 
-        {/* STATS SECTION */}
-        <section className="bg-[#1DB954] text-black p-12 rounded-[2.5rem] shadow-xl shadow-[#1db954]/20 relative overflow-hidden mb-16">
-          <div className="relative z-10">
-            <h2 className="text-3xl font-black mb-12 text-center uppercase italic tracking-tighter">
-              Dołącz do społeczności
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-4xl font-black mb-2">2137</div>
-                <p className="text-sm font-black uppercase tracking-[0.2em] opacity-80">Użytkowników</p>
-              </div>
-              <div>
-                <div className="text-4xl font-black mb-2">50M+</div>
-                <p className="text-sm font-black uppercase tracking-[0.2em] opacity-80">Analizowanych utworów</p>
-              </div>
-              <div>
-                <div className="text-4xl font-black mb-2">1K+</div>
-                <p className="text-sm font-black uppercase tracking-[0.2em] opacity-80">Artystów</p>
-              </div>
-              <div>
-                <div className="text-4xl font-black mb-2">24/7</div>
-                <p className="text-sm font-black uppercase tracking-[0.2em] opacity-80">Dostępność</p>
-              </div>
+        {/* STATS SECTION - MEGA BLOCK */}
+        <section className="bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black p-16 md:p-24 rounded-[4rem] relative overflow-hidden mb-32 group">
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+            <div className="space-y-2">
+              <div className="text-7xl font-black italic tracking-tighter group-hover:text-[#1DB954] transition-colors">2k+</div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">Active Users</p>
+            </div>
+            <div className="space-y-2">
+              <div className="text-7xl font-black italic tracking-tighter group-hover:text-[#1DB954] transition-colors">50M</div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">Tracks Scanned</p>
+            </div>
+            <div className="space-y-2">
+              <div className="text-7xl font-black italic tracking-tighter group-hover:text-[#1DB954] transition-colors">1k</div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">Artists Deep-Dived</p>
+            </div>
+            <div className="space-y-2">
+              <div className="text-7xl font-black italic tracking-tighter group-hover:text-[#1DB954] transition-colors">24/7</div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">Live Updates</p>
             </div>
           </div>
-          {/* Decorative element */}
-          <div className="absolute -top-20 -right-20 w-40 h-40 border-[20px] border-black/10 rounded-full" />
-          <div className="absolute -bottom-20 -left-20 w-32 h-32 border-[15px] border-black/10 rounded-full" />
+          {/* Animated decorative circle */}
+          <div className="absolute -top-24 -left-24 w-64 h-64 bg-[#1DB954] rounded-full blur-[120px] opacity-20 group-hover:opacity-40 transition-opacity" />
         </section>
 
-        {/* QUICK LINKS */}
-        <section className="text-center">
-          <h2 className="text-2xl font-black mb-8 uppercase italic tracking-tighter">Eksploruj</h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="/blog"
-              className="group bg-zinc-100 dark:bg-zinc-800 px-6 py-3 rounded-xl font-black text-sm uppercase tracking-tighter hover:bg-[#1DB954] hover:text-black transition-all duration-300"
-            >
-              <span className="flex items-center gap-2">
-                📝 Blog
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity">+</span>
-              </span>
-            </Link>
-            <Link
-              href="/kontakt"
-              className="group bg-zinc-100 dark:bg-zinc-800 px-6 py-3 rounded-xl font-black text-sm uppercase tracking-tighter hover:bg-[#1DB954] hover:text-black transition-all duration-300"
-            >
-              <span className="flex items-center gap-2">
-                📧 Kontakt
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity">+</span>
-              </span>
-            </Link>
-            <Link
-              href="/o-nas"
-              className="group bg-zinc-100 dark:bg-zinc-800 px-6 py-3 rounded-xl font-black text-sm uppercase tracking-tighter hover:bg-[#1DB954] hover:text-black transition-all duration-300"
-            >
-              <span className="flex items-center gap-2">
-                👥 O nas
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity">+</span>
-              </span>
-            </Link>
+        {/* NAVIGATION EXPLORER - MODERN TAGS */}
+        <section className="mb-20">
+          <div className="flex flex-col items-center">
+            <h2 className="text-xs font-black uppercase tracking-[0.5em] text-zinc-400 mb-12">Eksploruj System</h2>
+            <div className="flex flex-wrap justify-center gap-6">
+              {[
+                { label: 'Blog', href: '/blog', emoji: '📝' },
+                { label: 'Kontakt', href: '/kontakt', emoji: '📧' },
+                { label: 'O nas', href: '/o-nas', emoji: '👥' },
+                { label: 'Regulamin', href: '/terms', emoji: '⚖️' }
+              ].map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="group relative px-8 py-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden hover:border-[#1DB954] transition-all duration-300"
+                >
+                  <span className="relative z-10 flex items-center gap-3 font-black uppercase italic tracking-tighter text-sm">
+                    <span className="group-hover:scale-125 transition-transform">{link.emoji}</span>
+                    {link.label}
+                  </span>
+                  <div className="absolute inset-0 bg-[#1DB954] translate-y-full group-hover:translate-y-[90%] transition-transform duration-500" />
+                </Link>
+              ))}
+            </div>
           </div>
+        </section>
+
+        {/* FINAL CTA */}
+        <section className="text-center py-20 border-t border-zinc-200 dark:border-zinc-800">
+           <p className="font-mono text-[10px] uppercase tracking-widest text-[#1DB954] mb-4">Gotowy?</p>
+           <h2 className="text-5xl md:text-7xl font-black tracking-tighter italic uppercase mb-10">Zdefiniuj swój dźwięk.</h2>
+           <Link
+                href="/stats"
+                className="inline-block bg-black dark:bg-white text-white dark:text-black px-12 py-6 rounded-full font-black text-lg uppercase tracking-widest hover:scale-105 hover:bg-[#1DB954] dark:hover:bg-[#1DB954] hover:text-black transition-all duration-500"
+              >
+                Start Analysing — Free
+            </Link>
         </section>
 
       </main>

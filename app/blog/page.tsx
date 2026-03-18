@@ -3,314 +3,209 @@ import { Nav } from "../components/Nav";
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans">
+    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans selection:bg-[#1DB954] selection:text-black">
       <Nav />
       
       {/* HERO SECTION */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#1DB954]/10 to-zinc-950/5 dark:from-[#1DB954]/5 dark:to-zinc-900/50" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-[25rem] font-black text-zinc-100 dark:text-zinc-900 italic tracking-tighter opacity-10 select-none">
-            BLOG
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="text-[25vw] font-black text-zinc-100 dark:text-zinc-900 italic tracking-tighter opacity-20 select-none leading-none">
+            STORIES
           </div>
         </div>
         
         <div className="relative z-10 text-center max-w-4xl px-6">
           <p className="text-[#1DB954] font-mono text-xs font-bold uppercase tracking-[0.4em] mb-6 opacity-70">
-            Discover Our Stories
+            Read Our Universe
           </p>
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter italic uppercase leading-none mb-8">
+          <h1 className="text-6xl md:text-9xl font-black tracking-tighter italic uppercase leading-none mb-8">
             Blog.
           </h1>
-          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl mx-auto">
-            Odkryj świat muzyki poprzez nasze artykuły, analizy i inspiracje.
+          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl mx-auto font-medium">
+            Analizy, trendy i głębokie spojrzenie w przyszłość muzyki. 
+            Twoje źródło wiedzy o Music Tech.
           </p>
         </div>
       </section>
 
       <main className="mx-auto max-w-6xl px-6 py-16">
         
-        {/* FEATURED ARTICLE */}
-        <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
+        {/* FEATURED ARTICLE - MEGA POWER CARD */}
+        <section className="mb-32">
+          <div className="flex items-center gap-3 mb-12">
             <div className="w-3 h-3 bg-[#1DB954] rounded-full animate-pulse" />
-            <h2 className="text-4xl font-black uppercase italic tracking-tighter">Wyróżniony Artykuł</h2>
+            <h2 className="text-4xl font-black uppercase italic tracking-tighter">Wyróżniony.</h2>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="relative group">
-              <div className="aspect-[4/3] bg-gradient-to-br from-[#1DB954] to-zinc-900 rounded-[2.5rem] overflow-hidden relative">
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <span className="text-6xl font-black text-white/20 group-hover:text-white/30 transition-colors">🎵</span>
-                  </div>
-                </div>
-                <div className="absolute top-6 left-6">
-                  <span className="px-3 py-1 bg-[#1DB954] text-black rounded-full text-xs font-black uppercase tracking-tighter">
-                    Featured
-                  </span>
-                </div>
+          <div className="group relative grid grid-cols-1 lg:grid-cols-2 gap-0 bg-zinc-900 dark:bg-zinc-100 rounded-[3.5rem] overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.01]">
+            <div className="relative h-[400px] lg:h-full overflow-hidden">
+              <div className="absolute inset-0 bg-[#1DB954] opacity-20 mix-blend-overlay z-10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1DB954] to-black flex items-center justify-center text-[10rem]">
+                🎵
+              </div>
+              <div className="absolute top-8 left-8 z-20">
+                <span className="px-4 py-2 bg-[#1DB954] text-black rounded-full text-[10px] font-black uppercase tracking-widest">
+                  Hot Story
+                </span>
               </div>
             </div>
             
-            <div className="flex flex-col justify-center space-y-6">
-              <div>
-                <p className="text-[#1DB954] font-mono text-xs font-bold uppercase tracking-[0.4em] mb-2">
-                  15 marca 2024
-                </p>
-                <h3 className="text-3xl font-black mb-4 uppercase italic tracking-tighter">
-                  Przyszłość Muzyki: Jak AI Zmienia Nasze Gusty
-                </h3>
-                <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
-                  Odkryj jak sztuczna inteligencja rewolucjonizuje sposób, w jaki odkrywamy, 
-                  słuchamy i analizujemy muzykę. Przewidywania trendów i personalizacja na niespotykaną skalę.
-                </p>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-[#1DB954] rounded-full flex items-center justify-center">
-                      <span className="text-xs font-black text-black">AI</span>
-                    </div>
-                    <span className="text-sm font-black uppercase tracking-tighter">Zespół Zounk</span>
-                  </div>
-                  <span className="text-sm text-zinc-500">•</span>
-                  <span className="text-sm text-zinc-500">8 min czytania</span>
-                </div>
-              </div>
+            <div className="p-12 lg:p-20 flex flex-col justify-center text-white dark:text-black">
+              <p className="text-[#1DB954] font-mono text-[10px] font-bold uppercase tracking-[0.4em] mb-4">
+                15 marca 2024 — 8 min czytania
+              </p>
+              <h3 className="text-4xl md:text-5xl font-black mb-6 uppercase italic tracking-tighter leading-none">
+                AI & Music:<br/>Nowa Era.
+              </h3>
+              <p className="text-lg opacity-70 leading-relaxed mb-10 font-medium">
+                Sztuczna inteligencja nie tylko sugeruje utwory – ona zaczyna rozumieć Twoje emocje. 
+                Jak algorytmy rewolucjonizują odkrywanie muzyki?
+              </p>
               <Link
                 href="#"
-                className="inline-flex items-center gap-2 bg-[#1DB954] text-black px-6 py-3 rounded-2xl font-black text-sm uppercase tracking-tighter hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl shadow-[#1db954]/20"
+                className="inline-flex items-center gap-4 bg-[#1DB954] text-black px-10 py-5 rounded-2xl font-black text-xs uppercase tracking-widest hover:scale-105 transition-all duration-300 w-fit"
               >
-                Czytaj dalej
-                <span className="text-lg">→</span>
+                Czytaj artykuł <span>→</span>
               </Link>
             </div>
           </div>
         </section>
 
-        {/* CATEGORIES */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter italic uppercase leading-none mb-4">
+        {/* CATEGORIES - DASHBOARD STYLE */}
+        <section className="mb-32">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter italic uppercase leading-none mb-4">
               Kategorie.
             </h2>
-            <p className="text-zinc-600 dark:text-zinc-400">Znajdź temat, który Cię interesuje</p>
+            <div className="w-24 h-1 bg-[#1DB954] mx-auto"></div>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="group bg-zinc-950 dark:bg-zinc-50 text-white dark:text-black p-8 rounded-[2.5rem] shadow-xl text-center hover:scale-105 transition-all duration-500 cursor-pointer">
-              <div className="w-16 h-16 bg-[#1DB954] rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform duration-300">
-                <span className="text-2xl font-black text-black">🎵</span>
+            {[
+              { name: 'Analiza', count: 24, color: 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black' },
+              { name: 'Technologia', count: 18, color: 'bg-white dark:bg-zinc-900' },
+              { name: 'Trendy', count: 32, color: 'bg-white dark:bg-zinc-900' },
+              { name: 'Poradniki', count: 15, color: 'bg-[#1DB954] text-black' }
+            ].map((cat) => (
+              <div key={cat.name} className={`group ${cat.color} p-10 rounded-[2.5rem] shadow-xl hover:-translate-y-2 transition-all duration-500 cursor-pointer border border-zinc-200 dark:border-zinc-800`}>
+                <h3 className="text-xl font-black mb-2 uppercase italic tracking-tighter">{cat.name}.</h3>
+                <p className="text-[10px] font-mono uppercase tracking-[0.2em] opacity-50">{cat.count} Postów</p>
               </div>
-              <h3 className="text-xl font-black mb-2 uppercase tracking-tighter">Analiza</h3>
-              <p className="text-sm opacity-80">24 artykuły</p>
-            </div>
-            
-            <div className="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8 rounded-[2.5rem] shadow-lg text-center hover:scale-105 transition-all duration-500 cursor-pointer">
-              <div className="w-16 h-16 bg-[#1DB954] rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform duration-300">
-                <span className="text-2xl font-black text-black">🔬</span>
-              </div>
-              <h3 className="text-xl font-black mb-2 uppercase tracking-tighter">Technologia</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">18 artykułów</p>
-            </div>
-            
-            <div className="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8 rounded-[2.5rem] shadow-lg text-center hover:scale-105 transition-all duration-500 cursor-pointer">
-              <div className="w-16 h-16 bg-[#1DB954] rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform duration-300">
-                <span className="text-2xl font-black text-black">🎨</span>
-              </div>
-              <h3 className="text-xl font-black mb-2 uppercase tracking-tighter">Trendy</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">32 artykuły</p>
-            </div>
-            
-            <div className="group bg-[#1DB954] text-black p-8 rounded-[2.5rem] shadow-xl shadow-[#1db954]/20 text-center hover:scale-105 transition-all duration-500 cursor-pointer">
-              <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform duration-300">
-                <span className="text-2xl font-black text-white">🎯</span>
-              </div>
-              <h3 className="text-xl font-black mb-2 uppercase tracking-tighter">Poradniki</h3>
-              <p className="text-sm opacity-80">15 artykułów</p>
-            </div>
+            ))}
           </div>
         </section>
 
-        {/* RECENT POSTS */}
-        <section className="mb-20">
-          <div className="flex items-center justify-between mb-12">
-            <div className="flex items-center gap-3">
-              <div className="w-3 h-3 bg-[#1DB954] rounded-full animate-pulse" />
-              <h2 className="text-4xl font-black uppercase italic tracking-tighter">Najnowsze Artykuły</h2>
-            </div>
-            <Link
-              href="#"
-              className="text-[#1DB954] font-black text-sm uppercase tracking-tighter hover:gap-2 transition-all duration-300 flex items-center gap-1"
-            >
-              Zobacz wszystkie
-              <span>→</span>
+        {/* RECENT POSTS - MASONRY FEEL */}
+        <section className="mb-32">
+          <div className="flex flex-col md:flex-row items-baseline justify-between mb-16 gap-4">
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter italic uppercase leading-none">
+              Ostatnie.
+            </h2>
+            <Link href="#" className="font-mono text-xs uppercase tracking-widest text-[#1DB954] hover:underline">
+              Zobacz wszystkie Archiwum —&gt;
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Post 1 */}
-            <article className="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-[2.5rem] shadow-lg overflow-hidden hover:scale-105 transition-all duration-500">
-              <div className="aspect-[16/10] bg-gradient-to-br from-zinc-200 to-zinc-300 dark:from-zinc-700 dark:to-zinc-800 relative">
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300" />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-[#1DB954] text-black rounded-full text-xs font-black uppercase tracking-tighter">
-                    Analiza
-                  </span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              { cat: 'Analiza', date: '14.03', title: 'Top 10 Marca 2024', time: '5 min' },
+              { cat: 'Tech', date: '12.03', title: 'Spotify API vs Cloud', time: '7 min' },
+              { cat: 'Trendy', date: '10.03', title: 'Phonk Revival 2024', time: '6 min' }
+            ].map((post, idx) => (
+              <article key={idx} className="group cursor-pointer">
+                <div className="aspect-video bg-zinc-200 dark:bg-zinc-800 rounded-[2.5rem] mb-6 overflow-hidden relative">
+                  <div className="absolute inset-0 bg-[#1DB954] opacity-0 group-hover:opacity-20 transition-all duration-500" />
+                  <div className="absolute top-6 left-6">
+                    <span className="px-3 py-1 bg-black text-white dark:bg-white dark:text-black rounded-full text-[9px] font-black uppercase tracking-tighter">
+                      {post.cat}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className="p-8">
-                <p className="text-[#1DB954] font-mono text-xs font-bold uppercase tracking-[0.4em] mb-2">
-                  14 marca 2024
-                </p>
-                <h3 className="text-xl font-black mb-3 uppercase italic tracking-tighter">
-                  Top 10 Artystów Marca 2024
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-                  Sprawdź kto króluje na listach przebojów tego miesiąca. Surprising zmiany i nowe gwiazdy.
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-zinc-500">5 min czytania</span>
-                  <span className="text-[#1DB954] font-black text-sm uppercase tracking-tighter group-hover:translate-x-1 transition-transform">
-                    →
-                  </span>
+                <div className="px-2">
+                  <p className="text-[#1DB954] font-mono text-[10px] font-bold mb-2">{post.date} — {post.time}</p>
+                  <h3 className="text-2xl font-black mb-3 uppercase italic tracking-tighter group-hover:text-[#1DB954] transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">
+                    Sprawdź najnowsze zestawienie gwiazd, które zdominowały streaming w tym miesiącu...
+                  </p>
                 </div>
-              </div>
-            </article>
-
-            {/* Post 2 */}
-            <article className="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-[2.5rem] shadow-lg overflow-hidden hover:scale-105 transition-all duration-500">
-              <div className="aspect-[16/10] bg-gradient-to-br from-zinc-200 to-zinc-300 dark:from-zinc-700 dark:to-zinc-800 relative">
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300" />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-[#1DB954] text-black rounded-full text-xs font-black uppercase tracking-tighter">
-                    Technologia
-                  </span>
-                </div>
-              </div>
-              <div className="p-8">
-                <p className="text-[#1DB954] font-mono text-xs font-bold uppercase tracking-[0.4em] mb-2">
-                  12 marca 2024
-                </p>
-                <h3 className="text-xl font-black mb-3 uppercase italic tracking-tighter">
-                  Spotify API vs Apple Music
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-                  Porównanie dwóch największych platform streamingowych z perspektywy dewelopera.
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-zinc-500">7 min czytania</span>
-                  <span className="text-[#1DB954] font-black text-sm uppercase tracking-tighter group-hover:translate-x-1 transition-transform">
-                    →
-                  </span>
-                </div>
-              </div>
-            </article>
-
-            {/* Post 3 */}
-            <article className="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-[2.5rem] shadow-lg overflow-hidden hover:scale-105 transition-all duration-500">
-              <div className="aspect-[16/10] bg-gradient-to-br from-zinc-200 to-zinc-300 dark:from-zinc-700 dark:to-zinc-800 relative">
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300" />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-[#1DB954] text-black rounded-full text-xs font-black uppercase tracking-tighter">
-                    Trendy
-                  </span>
-                </div>
-              </div>
-              <div className="p-8">
-                <p className="text-[#1DB954] font-mono text-xs font-bold uppercase tracking-[0.4em] mb-2">
-                  10 marca 2024
-                </p>
-                <h3 className="text-xl font-black mb-3 uppercase italic tracking-tighter">
-                  Phonk Revival: Powrót Starego Szkoły
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-                  Dlaczego phonk wraca do łask i jak TikTok zmienił obraz muzyki undergroundowej.
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-zinc-500">6 min czytania</span>
-                  <span className="text-[#1DB954] font-black text-sm uppercase tracking-tighter group-hover:translate-x-1 transition-transform">
-                    →
-                  </span>
-                </div>
-              </div>
-            </article>
+              </article>
+            ))}
           </div>
         </section>
 
-        {/* NEWSLETTER */}
-        <section className="bg-[#1DB954] text-black p-12 rounded-[2.5rem] shadow-xl shadow-[#1db954]/20 relative overflow-hidden mb-20">
+        {/* NEWSLETTER - POSTER STYLE */}
+        <section className="bg-[#1DB954] text-black p-12 md:p-24 rounded-[4rem] shadow-2xl shadow-[#1db954]/30 relative overflow-hidden mb-32 group">
+          <div className="relative z-10 flex flex-col items-center text-center">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.5em] mb-6">Stay Connected</p>
+            <h2 className="text-5xl md:text-8xl font-black mb-10 uppercase italic tracking-tighter leading-none">
+              Bądź na<br/>Bieżąco.
+            </h2>
+            <p className="text-lg md:text-xl font-medium mb-12 max-w-xl opacity-80">
+              Cotygodniowa dawka wiedzy o muzyce i technologii prosto na Twój email.
+            </p>
+            <form className="w-full max-w-md flex flex-col sm:flex-row gap-4">
+              <input
+                type="email"
+                placeholder="TWOJ@EMAIL.PL"
+                className="flex-1 px-8 py-5 bg-black/10 rounded-2xl font-black text-xs uppercase tracking-widest placeholder-black/30 focus:outline-none focus:ring-2 focus:ring-black transition-all border-none"
+              />
+              <button
+                type="submit"
+                className="bg-black text-white px-10 py-5 rounded-2xl font-black text-xs uppercase tracking-widest hover:scale-105 transition-all duration-300"
+              >
+                Join
+              </button>
+            </form>
+            <p className="text-[10px] font-black uppercase tracking-widest mt-8 opacity-50">
+              Join 2,137+ Music Nerds
+            </p>
+          </div>
+          <div className="absolute top-0 left-0 w-full h-full text-[30rem] font-black text-black/5 pointer-events-none select-none italic tracking-tighter leading-none -translate-y-1/2">
+            NEWS
+          </div>
+        </section>
+
+        {/* STATS - MINIMALIST DASHBOARD */}
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-32 px-4">
+          {[
+            { label: 'Artykułów', val: '89' },
+            { label: 'Czytelników', val: '15k+' },
+            { label: 'Ekspertów', val: '12' },
+            { label: 'Nowe Posty', val: '24/7' }
+          ].map((stat) => (
+            <div key={stat.label} className="text-center space-y-2">
+              <div className="text-6xl font-black italic tracking-tighter text-[#1DB954]">{stat.val}</div>
+              <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-50">{stat.label}</p>
+            </div>
+          ))}
+        </section>
+
+        {/* FINAL CTA - SHARED STYLE */}
+        <section className="text-center py-24 bg-zinc-950 dark:bg-zinc-50 rounded-[4rem] text-white dark:text-black relative overflow-hidden group">
           <div className="relative z-10">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl font-black mb-6 uppercase italic tracking-tighter">
-                Bądź na bieżąco
-              </h2>
-              <p className="text-lg mb-8 opacity-90">
-                Otrzymuj najnowsze artykuły, analizy i ekskluzywne treści prosto na swoją skrzynkę.
-              </p>
-              <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Twój email"
-                  className="flex-1 px-4 py-3 bg-black/10 rounded-xl font-black text-sm uppercase tracking-tighter placeholder-black/50 focus:outline-none focus:ring-2 focus:ring-black transition-all"
-                />
-                <button
-                  type="submit"
-                  className="bg-black text-white px-6 py-3 rounded-xl font-black text-sm uppercase tracking-tighter hover:scale-105 transition-all duration-300"
-                >
-                  Zapisz się
-                </button>
-              </form>
-              <p className="text-xs mt-4 opacity-70">
-                Dołącz do 2137+ subskrybentów. Bez spamu, obiecujemy.
-              </p>
+            <h2 className="text-4xl md:text-7xl font-black mb-10 uppercase italic tracking-tighter">
+              Chcesz napisać<br/>Dla nas?
+            </h2>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center px-6">
+              <Link
+                href="/kontakt"
+                className="bg-[#1DB954] text-black px-12 py-6 rounded-2xl font-black text-xs uppercase tracking-widest hover:scale-110 transition-all duration-500 shadow-xl"
+              >
+                Zostań Autorem
+              </Link>
+              <Link
+                href="/stats"
+                className="bg-transparent border-2 border-white dark:border-black px-12 py-6 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition-all duration-500"
+              >
+                Twoje Statsy
+              </Link>
             </div>
           </div>
-          <div className="absolute -top-20 -right-20 w-40 h-40 border-[20px] border-black/10 rounded-full" />
-          <div className="absolute -bottom-20 -left-20 w-32 h-32 border-[15px] border-black/10 rounded-full" />
-        </section>
-
-        {/* STATS */}
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
-          <div className="text-center">
-            <div className="text-4xl font-black mb-2 text-[#1DB954]">89</div>
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-zinc-600 dark:text-zinc-400">Artykułów</p>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-black mb-2 text-[#1DB954]">15K</div>
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-zinc-600 dark:text-zinc-400">Czytelników</p>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-black mb-2 text-[#1DB954]">4.8</div>
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-zinc-600 dark:text-zinc-400">Ocena</p>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-black mb-2 text-[#1DB954]">24/7</div>
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-zinc-600 dark:text-zinc-400">Nowe treści</p>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="text-center">
-          <h2 className="text-3xl font-black mb-6 uppercase italic tracking-tighter">
-            Chcesz napisać dla nas?
-          </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl mx-auto">
-            Szukamy utalentowanych autorów z pasją do muzyki i technologii. Dołącz do naszego zespołu!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/kontakt"
-              className="bg-[#1DB954] text-black px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-tighter hover:scale-105 transition-all duration-300 shadow-xl shadow-[#1db954]/20"
-            >
-              Skontaktuj się
-            </Link>
-            <Link
-              href="/stats"
-              className="bg-zinc-950 dark:bg-zinc-50 text-white dark:text-black px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-tighter hover:scale-105 transition-all duration-300"
-            >
-              Sprawdź statystyki
-            </Link>
+          <div className="absolute bottom-0 left-0 text-[15rem] font-black text-white/5 dark:text-black/5 pointer-events-none select-none italic tracking-tighter leading-none">
+            WRITE
           </div>
         </section>
 
