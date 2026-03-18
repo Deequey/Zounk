@@ -19,8 +19,8 @@ export async function Nav() {
         
         {/* LOGO */}
         <Link href="/" className="group flex items-center gap-3 relative z-[110]">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#1DB954] transition-all duration-500 group-hover:rotate-[360deg] group-hover:rounded-full shadow-lg shadow-[#1db954]/20">
-            <span className="text-lg font-black text-black">Z</span>
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl transition-all duration-500">
+            <img src="/Zounk_Logo.png" alt="Zounk Logo" className="h-12 w-12" />
           </div>
           <span className="text-2xl font-black italic uppercase tracking-tighter text-zinc-900 dark:text-zinc-100 group-hover:text-[#1DB954] transition-colors">
             Zounk.
