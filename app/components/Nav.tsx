@@ -5,9 +5,10 @@ import { auth, signIn, signOut } from "@/lib/auth";
 const links = [
   { href: "/", label: "Home" },
   { href: "/stats", label: "Stats" },
+  { href: "/bitwy", label: "Battles" },
   { href: "/blog", label: "Blog" },
-  { href: "/o-nas", label: "O nas" },
-  { href: "/kontakt", label: "Kontakt" },
+  { href: "/o-nas", label: "About" },
+  { href: "/kontakt", label: "Contact" },
 ];
 
 export async function Nav() {

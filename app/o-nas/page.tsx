@@ -17,14 +17,13 @@ export default function ONasPage() {
         
         <div className="relative z-10 text-center max-w-4xl 2xl:max-w-6xl px-6">
           <p className="text-[#1DB954] font-mono text-xs 2xl:text-sm font-bold uppercase tracking-[0.4em] mb-6 opacity-70">
-            Discover Our Story
+            Our Philosophy
           </p>
           <h1 className="text-6xl md:text-8xl 2xl:text-9xl font-black tracking-tighter italic uppercase leading-none mb-8">
-            O nas.
+            About.
           </h1>
           <p className="text-lg md:text-xl 2xl:text-2xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl 2xl:max-w-4xl mx-auto">
-            Zounk to nie tylko platforma. To rewolucja w odkrywaniu muzyki, 
-            stworzona przez pasjonatów dla pasjonatów.
+            Zounk was built on one belief: listening to music should be even more fun — especially when you can prove to your friends that your taste is on another level.
           </p>
         </div>
       </section>
@@ -39,14 +38,14 @@ export default function ONasPage() {
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-3 h-3 bg-[#1DB954] rounded-full animate-pulse" />
-                <h2 className="text-3xl 2xl:text-4xl font-black uppercase italic tracking-tighter">Nasza Misja</h2>
+                <h2 className="text-3xl 2xl:text-4xl font-black uppercase italic tracking-tighter">Our Mission</h2>
               </div>
               <div className="space-y-6 max-w-xl 2xl:max-w-3xl">
                 <p className="text-xl md:text-2xl 2xl:text-3xl font-light leading-tight">
-                  Demokratyzujemy analizę muzyczną. Dajemy Ci narzędzia, które kiedyś były dostępne tylko dla branżowych profesjonalistów.
+                  Music is identity. The artists you love, the genres you live in — they say more about you than any bio ever could. Zounk gives you the tools to explore that identity and have a hell of a lot of fun doing it.
                 </p>
                 <p className="text-sm 2xl:text-base opacity-70 font-mono uppercase tracking-widest">
-                  Technologia / Dane / Psychologia Muzyki
+                  Taste / Identity / Battle Culture
                 </p>
               </div>
             </div>
@@ -57,9 +56,9 @@ export default function ONasPage() {
 
           {/* VALUES QUICK GRID */}
           <div className="bg-[#1DB954] text-black p-10 2xl:p-16 rounded-[2.5rem] shadow-xl shadow-[#1db954]/20 flex flex-col justify-center">
-            <h3 className="text-2xl 2xl:text-3xl font-black mb-8 uppercase italic tracking-tighter">Wartości</h3>
+            <h3 className="text-2xl 2xl:text-3xl font-black mb-8 uppercase italic tracking-tighter">Values</h3>
             <div className="space-y-4 2xl:space-y-6">
-              {['Pasja', 'Odkrywanie', 'Analiza', 'Innowacja'].map((val) => (
+              {['Passion', 'Rivalry', 'Discovery', 'Fun'].map((val) => (
                 <div key={val} className="flex items-center justify-between border-b border-black/10 pb-2 2xl:pb-4">
                   <span className="font-black uppercase italic tracking-tighter 2xl:text-xl">{val}</span>
                   <div className="w-2 h-2 2xl:w-3 2xl:h-3 bg-black rounded-full" />
@@ -74,12 +73,12 @@ export default function ONasPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
               <h2 className="text-6xl md:text-8xl 2xl:text-9xl font-black tracking-tighter italic uppercase leading-none">
-                Technologia.
+                How it works.
               </h2>
               <div className="w-32 2xl:w-48 h-1 bg-[#1DB954] mt-4"></div>
             </div>
             <p className="text-zinc-500 max-w-xs 2xl:max-w-sm font-mono text-xs 2xl:text-sm uppercase tracking-widest">
-              Wykorzystujemy najnowocześniejsze stacki technologiczne do analizy Twojego brzmienia.
+              Your Spotify data, decoded into personality traits, battle scores, and bragging rights.
             </p>
           </div>
           
@@ -88,9 +87,9 @@ export default function ONasPage() {
               <div className="w-12 h-12 2xl:w-16 2xl:h-16 bg-zinc-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#1DB954] group-hover:text-black transition-colors">
                 <span className="text-xs 2xl:text-sm font-black">ML</span>
               </div>
-              <h3 className="text-xl 2xl:text-2xl font-black mb-4 uppercase italic tracking-tighter">Machine Learning</h3>
+              <h3 className="text-xl 2xl:text-2xl font-black mb-4 uppercase italic tracking-tighter">Taste Engine</h3>
               <p className="text-sm 2xl:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Autorskie algorytmy rozpoznające wzorce w Twoich ulubionych gatunkach.
+                Algorithms that detect patterns in your genres and translate them into personality scores you can actually argue about.
               </p>
             </div>
 
@@ -100,7 +99,7 @@ export default function ONasPage() {
               </div>
               <h3 className="text-xl 2xl:text-2xl font-black mb-4 uppercase italic tracking-tighter">Spotify Cloud</h3>
               <p className="text-sm 2xl:text-base opacity-70 leading-relaxed">
-                Głęboka integracja z ekosystemem Spotify zapewniająca błyskawiczny przepływ danych.
+                Deep Spotify API integration pulling your real listening history — no guessing, no faking it.
               </p>
             </div>
 
@@ -110,7 +109,7 @@ export default function ONasPage() {
               </div>
               <h3 className="text-xl 2xl:text-2xl font-black mb-4 uppercase italic tracking-tighter">Real-time Data</h3>
               <p className="text-sm 2xl:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Twoje statystyki aktualizują się w czasie rzeczywistym wraz z każdym odsłuchem.
+                Every listen counts. The more you play, the sharper your profile — and the stronger your battle card.
               </p>
             </div>
           </div>
@@ -126,8 +125,7 @@ export default function ONasPage() {
                   Deequey.
                 </h2>
                 <p className="text-lg 2xl:text-xl opacity-80 leading-relaxed mb-8 max-w-xl">
-                  Zounk to niezależny projekt łączący pasję do muzyki z nowoczesnym programowaniem. 
-                  Każda linia kodu została napisana z myślą o użytkowniku.
+                  Zounk is a solo project built by someone who thinks life’s too short to listen to music without awareness. Every line of code written with headphones on.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   {['Next.js', 'TypeScript', 'Spotify API', 'Tailwind'].map(tech => (
@@ -153,16 +151,16 @@ export default function ONasPage() {
         <section className="mb-32">
            <div className="text-center mb-20">
             <h2 className="text-5xl md:text-7xl 2xl:text-8xl font-black tracking-tighter italic uppercase leading-none mb-4">
-              Nasza Droga.
+              The Road.
             </h2>
-            <p className="text-zinc-500 font-mono text-sm 2xl:text-base uppercase tracking-widest">Ewolucja pomysłu w rzeczywistość</p>
+            <p className="text-zinc-500 font-mono text-sm 2xl:text-base uppercase tracking-widest">From one idea to actual battles</p>
           </div>
 
           <div className="space-y-12 2xl:space-y-16 max-w-6xl mx-auto">
             {[
-              { year: '2026 Q1', title: 'Koncepcja', desc: 'Powstanie rewolucyjnego pomysłu analizy muzycznej preferencji.' },
-              { year: '2026 Q2', title: 'Development', desc: 'Intensywne prace nad silnikiem analitycznym i integracją API.' },
-              { year: '2026 Q4', title: 'Public Launch', desc: 'Udostępnienie platformy światu i budowa pierwszej społeczności.' }
+              { year: '2026 Q1', title: 'The Idea', desc: 'One question: what if listening to music was a sport? That’s where Zounk began.' },
+              { year: '2026 Q2', title: 'Development', desc: 'Building the taste engine, battle system, and Spotify integration from scratch.' },
+              { year: '2026 Q4', title: 'Launch', desc: 'First battles fought. First verdicts delivered. A community that takes music taste seriously.' }
             ].map((step, idx) => (
               <div key={idx} className="group grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
                 <div className="md:col-span-2 text-4xl 2xl:text-5xl font-black italic tracking-tighter text-zinc-300 dark:text-zinc-700 group-hover:text-[#1DB954] transition-colors">
@@ -182,24 +180,24 @@ export default function ONasPage() {
         <section className="bg-[#1DB954] text-black p-12 md:p-20 2xl:p-32 rounded-[3rem] shadow-xl shadow-[#1db954]/20 relative overflow-hidden mb-32">
           <div className="relative z-10">
             <h2 className="text-4xl 2xl:text-5xl font-black mb-16 text-center uppercase italic tracking-tighter">
-              Zaufanie w Liczbach
+              In Numbers
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
               <div>
                 <div className="text-6xl 2xl:text-8xl font-black mb-2 tracking-tighter">2.1k</div>
-                <p className="text-xs 2xl:text-sm font-black uppercase tracking-[0.2em] opacity-80">Użytkowników</p>
+                <p className="text-xs 2xl:text-sm font-black uppercase tracking-[0.2em] opacity-80">Users</p>
               </div>
               <div>
                 <div className="text-6xl 2xl:text-8xl font-black mb-2 tracking-tighter">50M</div>
-                <p className="text-xs 2xl:text-sm font-black uppercase tracking-[0.2em] opacity-80">Analiz</p>
+                <p className="text-xs 2xl:text-sm font-black uppercase tracking-[0.2em] opacity-80">Tracks Judged</p>
               </div>
               <div>
                 <div className="text-6xl 2xl:text-8xl font-black mb-2 tracking-tighter">1k+</div>
-                <p className="text-xs 2xl:text-sm font-black uppercase tracking-[0.2em] opacity-80">Artystów</p>
+                <p className="text-xs 2xl:text-sm font-black uppercase tracking-[0.2em] opacity-80">Battles Fought</p>
               </div>
               <div>
                 <div className="text-6xl 2xl:text-8xl font-black mb-2 tracking-tighter">100%</div>
-                <p className="text-xs 2xl:text-sm font-black uppercase tracking-[0.2em] opacity-80">Pasji</p>
+                <p className="text-xs 2xl:text-sm font-black uppercase tracking-[0.2em] opacity-80">Built with passion</p>
               </div>
             </div>
           </div>
@@ -210,23 +208,23 @@ export default function ONasPage() {
         {/* CTA SECTION */}
         <section className="text-center py-20 2xl:py-32 relative overflow-hidden rounded-[3rem] bg-zinc-100 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800">
           <h2 className="text-4xl md:text-5xl 2xl:text-6xl font-black mb-6 uppercase italic tracking-tighter">
-            Gotowy na muzyczną rewolucję?
+            Ready to know yourself better?
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl 2xl:max-w-4xl 2xl:text-xl mx-auto px-6">
-            Dołącz do tysięcy osób, które przestały tylko słuchać, a zaczęły rozumieć swoją muzykę.
+            Join thousands of people who stopped just listening and started actually owning their taste.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center px-6">
             <Link
               href="/stats"
               className="bg-[#1DB954] text-black px-10 py-5 2xl:px-14 2xl:py-6 rounded-2xl font-black text-sm 2xl:text-base uppercase tracking-widest hover:scale-105 transition-all duration-300 shadow-xl shadow-[#1db954]/20"
             >
-              Rozpocznij Teraz
+              Connect Spotify
             </Link>
             <Link
-              href="/kontakt"
+              href="/bitwy"
               className="bg-zinc-950 dark:bg-zinc-50 text-white dark:text-black px-10 py-5 2xl:px-14 2xl:py-6 rounded-2xl font-black text-sm 2xl:text-base uppercase tracking-widest hover:scale-105 transition-all duration-300"
             >
-              Skontaktuj się
+              Start a Battle
             </Link>
           </div>
         </section>
