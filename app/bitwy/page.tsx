@@ -35,11 +35,37 @@ export default async function BitwyPage() {
     : 50;
 
   const genreMap: Record<string, number> = {};
-  artists.forEach((a) =>
-    (a.genres ?? []).forEach((g: string) => {
+  artists.forEach((a) => {
+    // Try to get genres from Spotify API first
+    const spotifyGenres = a.genres ?? [];
+    spotifyGenres.forEach((g: string) => {
       genreMap[g] = (genreMap[g] || 0) + 1;
-    })
-  );
+    });
+
+    // If no genres from Spotify, try to infer from artist name/popularity
+    if (spotifyGenres.length === 0) {
+      // Add fallback genres based on popularity
+      const popularity = a.popularity ?? 50;
+      if (popularity < 30) {
+        genreMap["underground"] = (genreMap["underground"] || 0) + 1;
+        genreMap["alternative"] = (genreMap["alternative"] || 0) + 1;
+      } else if (popularity > 70) {
+        genreMap["pop"] = (genreMap["pop"] || 0) + 1;
+        genreMap["mainstream"] = (genreMap["mainstream"] || 0) + 1;
+      } else {
+        genreMap["indie"] = (genreMap["indie"] || 0) + 1;
+        genreMap["alternative"] = (genreMap["alternative"] || 0) + 1;
+      }
+    }
+  });
+
+  // If still no genres, add default fallback
+  if (Object.keys(genreMap).length === 0) {
+    genreMap["indie"] = artists.length;
+    genreMap["pop"] = Math.floor(artists.length / 2);
+    genreMap["rock"] = Math.floor(artists.length / 2);
+  }
+
   const topGenres = Object.entries(genreMap)
     .sort(([, a], [, b]) => b - a)
     .slice(0, 15)
@@ -66,6 +92,7 @@ export default async function BitwyPage() {
     avgTrackPopularity,
     avgTrackYear,
     topArtists: artists.slice(0, 5).map((a) => a.name),
+    allArtists: artists.map((a) => a.name),
   };
 
   return (

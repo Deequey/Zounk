@@ -2,9 +2,9 @@ import { auth } from "@/lib/auth";
 import { Nav } from "../components/Nav";
 import { redirect } from "next/navigation";
 
-async function getSpotifyData(endpoint: string, accessToken: string, limit: number = 20) {
+async function getSpotifyData(endpoint: string, accessToken: string, limit: number = 20, additionalParams: string = "") {
   try {
-    const url = `https://api.spotify.com/v1/me/${endpoint}?time_range=short_term&limit=${limit}`;
+    const url = `https://api.spotify.com/v1/me/${endpoint}?time_range=short_term&limit=${limit}${additionalParams}`;
     const res = await fetch(url, {
       headers: { Authorization: `Bearer ${accessToken}` },
       cache: 'no-store'
@@ -41,9 +41,10 @@ export default async function StatsPage() {
 
   if (!token) redirect("/");
 
-  const [topArtistsData, topTracksData] = await Promise.all([
+  const [topArtistsData, topTracksData, recentlyPlayedData] = await Promise.all([
     getSpotifyData("top/artists", token, 50),
     getSpotifyData("top/tracks", token, 12),
+    getSpotifyData("player/recently-played", token, 10, "&type=track"),
   ]);
 
   if (topArtistsData.error) {
@@ -153,6 +154,38 @@ return (
               </div>
               <div className="absolute -bottom-10 right-0 text-[20rem] 2xl:text-[30rem] font-black text-white/[0.03] dark:text-black/[0.03] pointer-events-none select-none italic tracking-tighter leading-none">
                 TOP
+              </div>
+            </section>
+
+            {/* RECENTLY PLAYED CARD */}
+            <section className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-10 2xl:p-14 rounded-[3rem] 2xl:rounded-[4rem] shadow-xl relative overflow-hidden">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-2xl 2xl:text-3xl font-black uppercase italic tracking-tighter">Ostatnio<br/>Grane.</h2>
+                <div className="w-2 h-2 bg-[#1DB954] rounded-full animate-pulse" />
+              </div>
+              <div className="space-y-4">
+                {recentlyPlayedData?.items?.length > 0 ? (
+                  recentlyPlayedData.items.slice(0, 5).map((item: any, i: number) => (
+                    <div key={item.track.id} className="flex items-center gap-4 group/item cursor-pointer">
+                      <span className="text-lg 2xl:text-xl font-black italic tracking-tighter text-zinc-300 dark:text-zinc-700 group-hover/item:text-[#1DB954] transition-colors duration-300">
+                        {(i + 1).toString().padStart(2, '0')}
+                      </span>
+                      <div className="relative h-12 w-12 flex-shrink-0">
+                        <img
+                          src={item.track?.album?.images?.[0]?.url}
+                          alt=""
+                          className="rounded-lg object-cover h-full w-full group-hover/item:scale-110 transition-all duration-300 shadow-lg"
+                        />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="font-black truncate text-sm 2xl:text-base uppercase tracking-tighter group-hover/item:translate-x-1 transition-transform">{item.track?.name}</p>
+                        <p className="text-[10px] 2xl:text-xs font-mono text-zinc-500 uppercase tracking-widest">{item.track?.artists?.[0]?.name}</p>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="py-12 text-center opacity-20 font-black italic uppercase">Brak danych</div>
+                )}
               </div>
             </section>
 
