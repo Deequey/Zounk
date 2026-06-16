@@ -49,7 +49,7 @@ export default async function StatsPage() {
 
   if (topArtistsData.error) {
     return (
-      <div className="min-h-screen bg-zinc-950 text-[#1DB954] flex items-center justify-center p-6 font-black uppercase italic text-center">
+      <div className="min-h-screen bg-zinc-950 text-[#0ad150] flex items-center justify-center p-6 font-black uppercase italic text-center">
         <p>Błąd API: {topArtistsData.error}. <br /> Spróbuj przelogować się.</p>
       </div>
     )
@@ -77,8 +77,8 @@ export default async function StatsPage() {
 
   const maxCount = Math.max(...genreEntries.map(([, count]) => count), 1);
 
-return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans selection:bg-[#1DB954] selection:text-black transition-colors duration-500">
+  return (
+    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans selection:bg-[#0ad150] selection:text-black transition-colors duration-500">
       <Nav />
 
       {/* Kontener dopasowany do UltraWide (2xl:px-40) */}
@@ -90,7 +90,7 @@ return (
             STATS.
           </div>
           <div className="relative z-10">
-            <p className="text-[#1DB954] font-mono text-[10px] 2xl:text-xs font-bold uppercase tracking-[0.5em] mb-4">
+            <p className="text-[#0ad150] font-mono text-[10px] 2xl:text-xs font-bold uppercase tracking-[0.5em] mb-4">
               Real-time Analysis
             </p>
             <h1 className="text-7xl md:text-9xl 2xl:text-[11rem] font-black tracking-tighter italic uppercase leading-none">
@@ -105,21 +105,21 @@ return (
           <section className="lg:col-span-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-10 2xl:p-14 rounded-[3rem] 2xl:rounded-[4rem] shadow-xl relative group">
             <div className="flex items-center justify-between mb-10">
               <h2 className="text-1xl 2xl:text-3xl font-black uppercase italic tracking-tighter">Artyści.</h2>
-              <div className="w-2 h-2 bg-[#1DB954] rounded-full animate-pulse" />
+              <div className="w-2 h-2 bg-[#0ad150] rounded-full animate-pulse" />
             </div>
 
             <div className="space-y-6 1xl:space-y-10">
               {topArtistsData.items?.length > 0 ? (
                 topArtistsData.items.slice(0, 8).map((artist: any, i: number) => (
                   <div key={artist.id} className="flex items-center gap-6 group/item cursor-pointer">
-                    <span className="text-2xl 2xl:text-3xl font-black italic tracking-tighter text-zinc-200 dark:text-zinc-800 group-hover/item:text-[#1DB954] transition-colors duration-300">
+                    <span className="text-2xl 2xl:text-3xl font-black italic tracking-tighter text-zinc-200 dark:text-zinc-800 group-hover/item:text-[#0ad150] transition-colors duration-300">
                       {(i + 1).toString().padStart(2, '0')}
                     </span>
                     <div className="relative h-16 w-16 2xl:h-20 2xl:w-20 flex-shrink-0">
                       <img
                         src={artist.images[0]?.url}
                         alt=""
-                        className="rounded-full object-cover h-full w-full grayscale group-hover/item:grayscale-0 group-hover/item:scale-110 transition-all duration-500 shadow-2xl border-2 border-transparent group-hover/item:border-[#1DB954]"
+                        className="rounded-full object-cover h-full w-full grayscale group-hover/item:grayscale-0 group-hover/item:scale-110 transition-all duration-500 shadow-2xl border-2 border-transparent group-hover/item:border-[#0ad150]"
                       />
                     </div>
                     <div className="min-w-0">
@@ -144,7 +144,7 @@ return (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 2xl:gap-x-20 gap-y-10 2xl:gap-y-16">
                   {topTracksData.items?.slice(0, 6).map((track: any) => (
                     <div key={track.id} className="group/track cursor-pointer">
-                      <div className="flex flex-col gap-2 border-l-4 border-[#1DB954]/30 hover:border-[#1DB954] pl-6 transition-all duration-300">
+                      <div className="flex flex-col gap-2 border-l-4 border-[#0ad150]/30 hover:border-[#0ad150] pl-6 transition-all duration-300">
                         <p className="font-black text-md md:text-xl 2xl:text-2xl truncate leading-none tracking-tighter uppercase italic">{track.name}</p>
                         <p className="text-zinc-500 dark:text-zinc-400 text-[10px] 2xl:text-xs font-black uppercase tracking-[0.3em]">{track.artists[0].name}</p>
                       </div>
@@ -160,14 +160,14 @@ return (
             {/* RECENTLY PLAYED CARD */}
             <section className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-10 2xl:p-14 rounded-[3rem] 2xl:rounded-[4rem] shadow-xl relative overflow-hidden">
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-2xl 2xl:text-3xl font-black uppercase italic tracking-tighter">Ostatnio<br/>Grane.</h2>
-                <div className="w-2 h-2 bg-[#1DB954] rounded-full animate-pulse" />
+                <h2 className="text-2xl 2xl:text-3xl font-black uppercase italic tracking-tighter">Ostatnio<br />Grane.</h2>
+                <div className="w-2 h-2 bg-[#0ad150] rounded-full animate-pulse" />
               </div>
               <div className="space-y-4">
                 {recentlyPlayedData?.items?.length > 0 ? (
                   recentlyPlayedData.items.slice(0, 5).map((item: any, i: number) => (
                     <div key={item.track.id} className="flex items-center gap-4 group/item cursor-pointer">
-                      <span className="text-lg 2xl:text-xl font-black italic tracking-tighter text-zinc-300 dark:text-zinc-700 group-hover/item:text-[#1DB954] transition-colors duration-300">
+                      <span className="text-lg 2xl:text-xl font-black italic tracking-tighter text-zinc-300 dark:text-zinc-700 group-hover/item:text-[#0ad150] transition-colors duration-300">
                         {(i + 1).toString().padStart(2, '0')}
                       </span>
                       <div className="relative h-12 w-12 flex-shrink-0">
@@ -191,7 +191,7 @@ return (
 
             {/* GENRES & INFO GRID */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 2xl:gap-16">
-              <section className="bg-[#1DB954] text-black p-10 2xl:p-14 rounded-[3rem] 2xl:rounded-[4rem] shadow-2xl shadow-[#1db954]/20 relative overflow-hidden flex flex-col justify-between">
+              <section className="bg-[#0ad150] text-black p-10 2xl:p-14 rounded-[3rem] 2xl:rounded-[4rem] shadow-2xl shadow-[#0ad150]/20 relative overflow-hidden flex flex-col justify-between">
                 <div>
                   <h2 className="inline-block text-[10px] 2xl:text-xs font-black uppercase tracking-[0.4em] mb-8 bg-black text-white px-3 py-1">Gatunki DNA</h2>
                   {genreEntries.length > 0 ? (
@@ -232,7 +232,7 @@ return (
                     Analiza preferencji z ostatnich 4 tygodni twojego słuchania na Spotify.
                   </p>
                 </div>
-                <button className="relative z-10 mt-8 w-full py-4 2xl:py-6 bg-zinc-100 dark:bg-zinc-800 rounded-2xl font-black text-[10px] 2xl:text-xs uppercase tracking-widest hover:bg-[#1DB954] hover:text-black transition-all duration-500 shadow-lg">
+                <button className="relative z-10 mt-8 w-full py-4 2xl:py-6 bg-zinc-100 dark:bg-zinc-800 rounded-2xl font-black text-[10px] 2xl:text-xs uppercase tracking-widest hover:bg-[#0ad150] hover:text-black transition-all duration-500 shadow-lg">
                   Udostępnij Wynik
                 </button>
                 <div className="absolute top-[-40px] right-[-40px] w-32 h-32 2xl:w-64 2xl:h-64 border-[20px] 2xl:border-[40px] border-zinc-50 dark:border-zinc-800 rounded-full" />

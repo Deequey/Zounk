@@ -3,20 +3,20 @@ import { Nav } from "../components/Nav";
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans selection:bg-[#1DB954] selection:text-black">
+    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans selection:bg-[#0ad150] selection:text-black">
       <Nav />
-      
+
       {/* HERO SECTION - Monumentalny start */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1DB954]/10 to-zinc-950/5 dark:from-[#1DB954]/5 dark:to-zinc-900/50" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0ad150]/10 to-zinc-950/5 dark:from-[#0ad150]/5 dark:to-zinc-900/50" />
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="text-[18vw] font-black text-zinc-200/50 dark:text-zinc-800/50 italic tracking-tighter select-none leading-none">
             STORIES
           </div>
         </div>
-        
+
         <div className="relative z-10 text-center max-w-4xl 2xl:max-w-6xl px-6">
-          <p className="text-[#1DB954] font-mono text-xs 2xl:text-sm font-bold uppercase tracking-[0.4em] mb-6 opacity-70">
+          <p className="text-[#0ad150] font-mono text-xs 2xl:text-sm font-bold uppercase tracking-[0.4em] mb-6 opacity-70">
             Music. Identity. Culture.
           </p>
           <h1 className="text-6xl md:text-9xl 2xl:text-[11rem] font-black tracking-tighter italic uppercase leading-none mb-8">
@@ -30,40 +30,40 @@ export default function BlogPage() {
 
       {/* MAIN CONTAINER - Pełna szerokość na 2xl */}
       <main className="w-full px-6 md:px-16 lg:px-24 2xl:px-40 py-16 mx-auto">
-        
+
         {/* FEATURED ARTICLE - MEGA POWER CARD */}
         <section className="mb-32 2xl:mb-48">
           <div className="flex items-center gap-3 mb-12">
-            <div className="w-3 h-3 bg-[#1DB954] rounded-full animate-pulse" />
+            <div className="w-3 h-3 bg-[#0ad150] rounded-full animate-pulse" />
             <h2 className="text-4xl 2xl:text-5xl font-black uppercase italic tracking-tighter">Featured.</h2>
           </div>
-          
+
           <div className="group relative grid grid-cols-1 lg:grid-cols-2 gap-0 bg-zinc-900 dark:bg-zinc-100 rounded-[3.5rem] 2xl:rounded-[5rem] overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.01]">
             <div className="relative h-[400px] lg:h-full overflow-hidden">
-              <div className="absolute inset-0 bg-[#1DB954] opacity-20 mix-blend-overlay z-10" />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1DB954] to-black flex items-center justify-center text-[10rem] 2xl:text-[15rem]">
+              <div className="absolute inset-0 bg-[#0ad150] opacity-20 mix-blend-overlay z-10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0ad150] to-black flex items-center justify-center text-[10rem] 2xl:text-[15rem]">
                 🎵
               </div>
               <div className="absolute top-8 left-8 2xl:top-12 2xl:left-12 z-20">
-                <span className="px-4 py-2 bg-[#1DB954] text-black rounded-full text-[10px] 2xl:text-xs font-black uppercase tracking-widest">
+                <span className="px-4 py-2 bg-[#0ad150] text-black rounded-full text-[10px] 2xl:text-xs font-black uppercase tracking-widest">
                   Hot Story
                 </span>
               </div>
             </div>
-            
+
             <div className="p-12 lg:p-20 2xl:p-32 flex flex-col justify-center text-white dark:text-black">
-              <p className="text-[#1DB954] font-mono text-[10px] 2xl:text-xs font-bold uppercase tracking-[0.4em] mb-4">
+              <p className="text-[#0ad150] font-mono text-[10px] 2xl:text-xs font-bold uppercase tracking-[0.4em] mb-4">
                 April 2026 — 8 min read
               </p>
               <h3 className="text-4xl md:text-5xl 2xl:text-7xl font-black mb-6 uppercase italic tracking-tighter leading-none">
-                Your playlist<br/>is a personality test.
+                Your playlist<br />is a personality test.
               </h3>
               <p className="text-lg 2xl:text-2xl opacity-70 leading-relaxed mb-10 font-medium">
                 The genres you gravitate toward, the artists you keep returning to — they’re not random. They’re a map of who you actually are.
               </p>
               <Link
                 href="#"
-                className="inline-flex items-center gap-4 bg-[#1DB954] text-black px-10 py-5 2xl:px-14 2xl:py-7 rounded-2xl font-black text-xs 2xl:text-sm uppercase tracking-widest hover:scale-105 transition-all duration-300 w-fit"
+                className="inline-flex items-center gap-4 bg-[#0ad150] text-black px-10 py-5 2xl:px-14 2xl:py-7 rounded-2xl font-black text-xs 2xl:text-sm uppercase tracking-widest hover:scale-105 transition-all duration-300 w-fit"
               >
                 Read article <span>→</span>
               </Link>
@@ -77,15 +77,15 @@ export default function BlogPage() {
             <h2 className="text-5xl md:text-7xl 2xl:text-9xl font-black tracking-tighter italic uppercase leading-none mb-4">
               Categories.
             </h2>
-            <div className="w-24 2xl:w-40 h-1 bg-[#1DB954] mx-auto"></div>
+            <div className="w-24 2xl:w-40 h-1 bg-[#0ad150] mx-auto"></div>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 2xl:gap-10">
             {[
               { name: 'Identity', count: 24, color: 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black' },
               { name: 'Culture', count: 18, color: 'bg-white dark:bg-zinc-900' },
               { name: 'Battles', count: 32, color: 'bg-white dark:bg-zinc-900' },
-              { name: 'Guides', count: 15, color: 'bg-[#1DB954] text-black' }
+              { name: 'Guides', count: 15, color: 'bg-[#0ad150] text-black' }
             ].map((cat) => (
               <div key={cat.name} className={`group ${cat.color} p-10 2xl:p-16 rounded-[2.5rem] 2xl:rounded-[3.5rem] shadow-xl hover:-translate-y-2 transition-all duration-500 cursor-pointer border border-zinc-200 dark:border-zinc-800`}>
                 <h3 className="text-xl 2xl:text-3xl font-black mb-2 uppercase italic tracking-tighter">{cat.name}.</h3>
@@ -101,11 +101,11 @@ export default function BlogPage() {
             <h2 className="text-5xl md:text-7xl 2xl:text-[8rem] font-black tracking-tighter italic uppercase leading-none">
               Recent.
             </h2>
-            <Link href="#" className="font-mono text-xs 2xl:text-sm uppercase tracking-widest text-[#1DB954] hover:underline">
+            <Link href="#" className="font-mono text-xs 2xl:text-sm uppercase tracking-widest text-[#0ad150] hover:underline">
               View all Archive —&gt;
             </Link>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 2xl:gap-16">
             {[
               { cat: 'Identity', date: 'Apr 08', title: 'Are You Really That Niche?', time: '5 min' },
@@ -114,7 +114,7 @@ export default function BlogPage() {
             ].map((post, idx) => (
               <article key={idx} className="group cursor-pointer">
                 <div className="aspect-video bg-zinc-200 dark:bg-zinc-800 rounded-[2.5rem] 2xl:rounded-[3.5rem] mb-6 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-[#1DB954] opacity-0 group-hover:opacity-20 transition-all duration-500" />
+                  <div className="absolute inset-0 bg-[#0ad150] opacity-0 group-hover:opacity-20 transition-all duration-500" />
                   <div className="absolute top-6 left-6 2xl:top-10 2xl:left-10">
                     <span className="px-3 py-1 bg-black text-white dark:bg-white dark:text-black rounded-full text-[9px] 2xl:text-[11px] font-black uppercase tracking-tighter">
                       {post.cat}
@@ -122,8 +122,8 @@ export default function BlogPage() {
                   </div>
                 </div>
                 <div className="px-2">
-                  <p className="text-[#1DB954] font-mono text-[10px] 2xl:text-xs font-bold mb-2">{post.date} — {post.time}</p>
-                  <h3 className="text-2xl 2xl:text-4xl font-black mb-3 uppercase italic tracking-tighter group-hover:text-[#1DB954] transition-colors">
+                  <p className="text-[#0ad150] font-mono text-[10px] 2xl:text-xs font-bold mb-2">{post.date} — {post.time}</p>
+                  <h3 className="text-2xl 2xl:text-4xl font-black mb-3 uppercase italic tracking-tighter group-hover:text-[#0ad150] transition-colors">
                     {post.title}
                   </h3>
                   <p className="text-sm 2xl:text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">
@@ -136,11 +136,11 @@ export default function BlogPage() {
         </section>
 
         {/* NEWSLETTER - POSTER STYLE */}
-        <section className="bg-[#1DB954] text-black p-12 md:p-24 2xl:p-40 rounded-[4rem] 2xl:rounded-[6rem] shadow-2xl shadow-[#1db954]/30 relative overflow-hidden mb-32 2xl:mb-48 group">
+        <section className="bg-[#0ad150] text-black p-12 md:p-24 2xl:p-40 rounded-[4rem] 2xl:rounded-[6rem] shadow-2xl shadow-[#0ad150]/30 relative overflow-hidden mb-32 2xl:mb-48 group">
           <div className="relative z-10 flex flex-col items-center text-center">
             <p className="font-mono text-[10px] 2xl:text-xs font-bold uppercase tracking-[0.5em] mb-6">Stay in the loop</p>
             <h2 className="text-5xl md:text-8xl 2xl:text-[10rem] font-black mb-10 uppercase italic tracking-tighter leading-none">
-              Know your<br/>music better.
+              Know your<br />music better.
             </h2>
             <p className="text-lg md:text-xl 2xl:text-3xl font-medium mb-12 max-w-xl 2xl:max-w-4xl opacity-80">
               Weekly drops on music identity, taste psychology, and battle strategies — straight to your inbox.
@@ -176,7 +176,7 @@ export default function BlogPage() {
             { label: 'Fresh drops', val: '24/7' }
           ].map((stat) => (
             <div key={stat.label} className="text-center space-y-2">
-              <div className="text-6xl 2xl:text-9xl font-black italic tracking-tighter text-[#1DB954]">{stat.val}</div>
+              <div className="text-6xl 2xl:text-9xl font-black italic tracking-tighter text-[#0ad150]">{stat.val}</div>
               <p className="text-[10px] 2xl:text-xs font-black uppercase tracking-[0.3em] opacity-50">{stat.label}</p>
             </div>
           ))}
@@ -186,12 +186,12 @@ export default function BlogPage() {
         <section className="text-center py-24 2xl:py-40 bg-zinc-950 dark:bg-zinc-50 rounded-[4rem] 2xl:rounded-[6rem] text-white dark:text-black relative overflow-hidden group">
           <div className="relative z-10">
             <h2 className="text-4xl md:text-7xl 2xl:text-9xl font-black mb-10 uppercase italic tracking-tighter leading-tight">
-              Got something<br/>to say?
+              Got something<br />to say?
             </h2>
             <div className="flex flex-col sm:flex-row gap-6 justify-center px-6">
               <Link
                 href="/kontakt"
-                className="bg-[#1DB954] text-black px-12 py-6 2xl:px-16 2xl:py-8 rounded-2xl font-black text-xs 2xl:text-sm uppercase tracking-widest hover:scale-110 transition-all duration-500 shadow-xl"
+                className="bg-[#0ad150] text-black px-12 py-6 2xl:px-16 2xl:py-8 rounded-2xl font-black text-xs 2xl:text-sm uppercase tracking-widest hover:scale-110 transition-all duration-500 shadow-xl"
               >
                 Become a Writer
               </Link>

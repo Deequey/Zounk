@@ -79,23 +79,23 @@ function calcMainstream(p: BattleProfile) {
 
 function calcCompatibility(p1: BattleProfile, p2: BattleProfile): number {
   if (!p1.allArtists || !p2.allArtists) return 0;
-  
+
   const set1 = new Set(p1.allArtists);
   const set2 = new Set(p2.allArtists);
-  
+
   const intersection = new Set([...set1].filter(x => set2.has(x)));
   const union = new Set([...set1, ...set2]);
-  
+
   if (union.size === 0) return 0;
   return Math.round((intersection.size / union.size) * 100);
 }
 
 function calcCommonArtists(p1: BattleProfile, p2: BattleProfile): number {
   if (!p1.allArtists || !p2.allArtists) return 0;
-  
+
   const set1 = new Set(p1.allArtists);
   const set2 = new Set(p2.allArtists);
-  
+
   const intersection = new Set([...set1].filter(x => set2.has(x)));
   return intersection.size;
 }
@@ -105,12 +105,12 @@ function calcDiscoveryRate(p: BattleProfile): number {
   // Higher avg year (closer to current year) = higher discovery rate
   const currentYear = 2026;
   const yearsFromNow = currentYear - p.avgTrackYear;
-  
+
   // If tracks are from current year, discovery rate is 100%
   // If tracks are 6+ years old, discovery rate is 0%
   if (yearsFromNow <= 0) return 100;
   if (yearsFromNow >= 6) return 0;
-  
+
   return Math.round(((6 - yearsFromNow) / 6) * 100);
 }
 
@@ -269,7 +269,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Title
-      ctx.fillStyle = '#1DB954';
+      ctx.fillStyle = '#0ad150';
       ctx.font = 'bold 60px Arial';
       ctx.textAlign = 'center';
       ctx.fillText('ZOUNK BATTLE', canvas.width / 2, 100);
@@ -285,7 +285,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
       ctx.fillText(opponent!.name, canvas.width / 2 + 250, 350);
 
       // Score
-      ctx.fillStyle = '#1DB954';
+      ctx.fillStyle = '#0ad150';
       ctx.font = 'bold 80px Arial';
       ctx.fillText(`${battle!.myWins} - ${battle!.opWins}`, canvas.width / 2, 500);
 
@@ -305,10 +305,10 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
         ctx.font = 'bold 36px Arial';
         ctx.fillText(`${cat.emoji} ${cat.name}`, canvas.width / 2, y);
 
-        ctx.fillStyle = cat.myWins ? '#1DB954' : '#ffffff';
+        ctx.fillStyle = cat.myWins ? '#0ad150' : '#ffffff';
         ctx.fillText(`${profile.name.split(' ')[0]}: ${cat.myScore}`, canvas.width / 2 - 300, y + 50);
 
-        ctx.fillStyle = !cat.myWins && !cat.tie ? '#1DB954' : '#ffffff';
+        ctx.fillStyle = !cat.myWins && !cat.tie ? '#0ad150' : '#ffffff';
         ctx.fillText(`${opponent!.name.split(' ')[0]}: ${cat.opponentScore}`, canvas.width / 2 + 300, y + 50);
 
         y += 160;
@@ -361,7 +361,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
           BATTLES.
         </div>
         <div className="relative z-10">
-          <p className="text-[#1DB954] font-mono text-[10px] 2xl:text-xs font-bold uppercase tracking-[0.5em] mb-4">
+          <p className="text-[#0ad150] font-mono text-[10px] 2xl:text-xs font-bold uppercase tracking-[0.5em] mb-4">
             Musical Showdown
           </p>
           <h1 className="text-7xl md:text-9xl 2xl:text-[11rem] font-black tracking-tighter italic uppercase leading-none">
@@ -383,7 +383,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
               YOU
             </div>
             <div className="relative z-10">
-              <p className="text-[#1DB954] font-mono text-[10px] font-bold uppercase tracking-[0.4em] mb-6">
+              <p className="text-[#0ad150] font-mono text-[10px] font-bold uppercase tracking-[0.4em] mb-6">
                 Your Battle Card
               </p>
 
@@ -392,7 +392,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
                   <img
                     src={profile.avatar}
                     alt=""
-                    className="h-18 w-18 rounded-2xl object-cover border-2 border-[#1DB954] shrink-0"
+                    className="h-18 w-18 rounded-2xl object-cover border-2 border-[#0ad150] shrink-0"
                   />
                 )}
                 <div>
@@ -422,7 +422,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
                 {CATEGORIES.map((cat) => (
                   <div key={cat.id} className="text-center">
                     <div className="text-lg mb-1">{cat.emoji}</div>
-                    <div className="text-base font-black italic text-[#1DB954]">
+                    <div className="text-base font-black italic text-[#0ad150]">
                       {String(cat.calc(profile) ?? 0)}
                     </div>
                     <div className="text-[8px] font-mono text-zinc-600 uppercase tracking-wide">
@@ -443,7 +443,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
                   </code>
                   <button
                     onClick={handleCopy}
-                    className="flex-shrink-0 px-4 py-2 bg-[#1DB954] text-black text-[10px] font-black uppercase tracking-widest rounded-xl hover:scale-105 active:scale-95 transition-transform"
+                    className="flex-shrink-0 px-4 py-2 bg-[#0ad150] text-black text-[10px] font-black uppercase tracking-widest rounded-xl hover:scale-105 active:scale-95 transition-transform"
                   >
                     {copied ? "✓ Copied" : "Copy"}
                   </button>
@@ -455,7 +455,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
           {/* OPPONENT INPUT CARD */}
           <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-10 2xl:p-14 rounded-[3rem] flex flex-col shadow-xl">
             <div className="flex-1">
-              <p className="text-[#1DB954] font-mono text-[10px] font-bold uppercase tracking-[0.4em] mb-6">
+              <p className="text-[#0ad150] font-mono text-[10px] font-bold uppercase tracking-[0.4em] mb-6">
                 Opponent Profile
               </p>
               <h2 className="text-4xl 2xl:text-5xl font-black uppercase italic tracking-tighter leading-none mb-4">
@@ -480,7 +480,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
                 value={opponentCode}
                 onChange={(e) => setOpponentCode(e.target.value)}
                 placeholder="Paste your opponent's battle code here…"
-                className="w-full h-28 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl p-4 text-xs font-mono resize-none focus:outline-none focus:border-[#1DB954] transition-colors placeholder:text-zinc-400"
+                className="w-full h-28 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl p-4 text-xs font-mono resize-none focus:outline-none focus:border-[#0ad150] transition-colors placeholder:text-zinc-400"
               />
               {error && (
                 <p className="mt-2 text-red-500 text-xs font-mono">{error}</p>
@@ -490,7 +490,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
             <button
               onClick={handleBattle}
               disabled={!opponentCode.trim()}
-              className="mt-6 w-full bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-[#1DB954] hover:text-black disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300"
+              className="mt-6 w-full bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-[#0ad150] hover:text-black disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300"
             >
               🥊 Let's Battle!
             </button>
@@ -503,13 +503,13 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
             <div className="absolute -bottom-10 -right-10 text-[15rem] font-black text-white/5 dark:text-zinc-900/5 italic select-none pointer-events-none leading-none">
               GUESS
             </div>
-            
+
             <div className="relative z-10">
               <div className="flex items-center gap-6 mb-10">
                 {profile.avatar && (
-                  <img src={profile.avatar} alt="" className="h-16 w-16 rounded-2xl object-cover border-2 border-[#1DB954]" />
+                  <img src={profile.avatar} alt="" className="h-16 w-16 rounded-2xl object-cover border-2 border-[#0ad150]" />
                 )}
-                <div className="text-5xl font-black italic text-[#1DB954]">VS</div>
+                <div className="text-5xl font-black italic text-[#0ad150]">VS</div>
                 {opponent!.avatar && (
                   <img src={opponent!.avatar} alt="" className="h-16 w-16 rounded-2xl object-cover border-2 border-zinc-700" />
                 )}
@@ -535,21 +535,19 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
                     <div className="flex gap-4">
                       <button
                         onClick={() => handleGuess(cat.id, "me")}
-                        className={`flex-1 py-4 rounded-xl font-black text-sm uppercase tracking-widest transition-all ${
-                          guesses[cat.id] === "me"
-                            ? "bg-[#1DB954] text-black"
-                            : "bg-zinc-800 dark:bg-zinc-300 text-zinc-400 dark:text-zinc-700 hover:bg-zinc-700 dark:hover:bg-zinc-400"
-                        }`}
+                        className={`flex-1 py-4 rounded-xl font-black text-sm uppercase tracking-widest transition-all ${guesses[cat.id] === "me"
+                          ? "bg-[#0ad150] text-black"
+                          : "bg-zinc-800 dark:bg-zinc-300 text-zinc-400 dark:text-zinc-700 hover:bg-zinc-700 dark:hover:bg-zinc-400"
+                          }`}
                       >
                         {profile.name.split(" ")[0]}
                       </button>
                       <button
                         onClick={() => handleGuess(cat.id, "opponent")}
-                        className={`flex-1 py-4 rounded-xl font-black text-sm uppercase tracking-widest transition-all ${
-                          guesses[cat.id] === "opponent"
-                            ? "bg-[#1DB954] text-black"
-                            : "bg-zinc-800 dark:bg-zinc-300 text-zinc-400 dark:text-zinc-700 hover:bg-zinc-700 dark:hover:bg-zinc-400"
-                        }`}
+                        className={`flex-1 py-4 rounded-xl font-black text-sm uppercase tracking-widest transition-all ${guesses[cat.id] === "opponent"
+                          ? "bg-[#0ad150] text-black"
+                          : "bg-zinc-800 dark:bg-zinc-300 text-zinc-400 dark:text-zinc-700 hover:bg-zinc-700 dark:hover:bg-zinc-400"
+                          }`}
                       >
                         {opponent!.name.split(" ")[0]}
                       </button>
@@ -561,7 +559,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
               <button
                 onClick={handleShowResults}
                 disabled={Object.keys(guesses).length < CATEGORIES.length}
-                className="w-full bg-[#1DB954] text-black py-6 rounded-2xl font-black text-lg uppercase tracking-widest hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300"
+                className="w-full bg-[#0ad150] text-black py-6 rounded-2xl font-black text-lg uppercase tracking-widest hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300"
               >
                 🎬 Reveal Results
               </button>
@@ -585,11 +583,11 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
                   <img
                     src={profile.avatar}
                     alt=""
-                    className={`h-24 w-24 rounded-3xl object-cover mx-auto mb-4 border-4 transition-all ${battle.myWins > battle.opWins ? "border-[#1DB954] shadow-lg shadow-[#1db954]/40" : "border-zinc-700"}`}
+                    className={`h-24 w-24 rounded-3xl object-cover mx-auto mb-4 border-4 transition-all ${battle.myWins > battle.opWins ? "border-[#0ad150] shadow-lg shadow-[#0ad150]/40" : "border-zinc-700"}`}
                   />
                 )}
                 <p className="text-2xl font-black uppercase italic tracking-tighter leading-none">{profile.name}</p>
-                <p className={`font-mono text-xs mt-1 ${battle.myWins > battle.opWins ? "text-[#1DB954]" : "text-zinc-500"}`}>
+                <p className={`font-mono text-xs mt-1 ${battle.myWins > battle.opWins ? "text-[#0ad150]" : "text-zinc-500"}`}>
                   {battle.myWins} {battle.myWins === 1 ? "win" : "wins"}
                 </p>
               </div>
@@ -599,7 +597,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
                 {battle.myWins !== battle.opWins ? (
                   <>
                     <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Winner</p>
-                    <p className="text-3xl font-black italic uppercase tracking-tighter text-[#1DB954]">
+                    <p className="text-3xl font-black italic uppercase tracking-tighter text-[#0ad150]">
                       {battle.myWins > battle.opWins ? profile.name.split(" ")[0] : opponent!.name.split(" ")[0]}!
                     </p>
                   </>
@@ -619,11 +617,11 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
                   <img
                     src={opponent!.avatar}
                     alt=""
-                    className={`h-24 w-24 rounded-3xl object-cover mx-auto mb-4 border-4 transition-all ${battle.opWins > battle.myWins ? "border-[#1DB954] shadow-lg shadow-[#1db954]/40" : "border-zinc-700"}`}
+                    className={`h-24 w-24 rounded-3xl object-cover mx-auto mb-4 border-4 transition-all ${battle.opWins > battle.myWins ? "border-[#0ad150] shadow-lg shadow-[#0ad150]/40" : "border-zinc-700"}`}
                   />
                 )}
                 <p className="text-2xl font-black uppercase italic tracking-tighter leading-none">{opponent!.name}</p>
-                <p className={`font-mono text-xs mt-1 ${battle.opWins > battle.myWins ? "text-[#1DB954]" : "text-zinc-500"}`}>
+                <p className={`font-mono text-xs mt-1 ${battle.opWins > battle.myWins ? "text-[#0ad150]" : "text-zinc-500"}`}>
                   {battle.opWins} {battle.opWins === 1 ? "win" : "wins"}
                 </p>
               </div>
@@ -632,7 +630,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
 
           {/* COMPATIBILITY & COMMON ARTISTS */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div className="bg-[#1DB954] text-black p-8 2xl:p-12 rounded-[3rem] shadow-2xl shadow-[#1db954]/20 relative overflow-hidden">
+            <div className="bg-[#0ad150] text-black p-8 2xl:p-12 rounded-[3rem] shadow-2xl shadow-[#0ad150]/20 relative overflow-hidden">
               <div className="relative z-10">
                 <p className="text-[10px] font-mono font-black uppercase tracking-[0.4em] mb-4 opacity-70">Taste Compatibility</p>
                 <div className="text-7xl 2xl:text-8xl font-black italic tracking-tighter mb-2">{battle.compatibility}%</div>
@@ -645,7 +643,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
             <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8 2xl:p-12 rounded-[3rem] shadow-xl relative overflow-hidden">
               <div className="relative z-10">
                 <p className="text-[10px] font-mono font-black uppercase tracking-[0.4em] mb-4 opacity-50">Common Artists</p>
-                <div className="text-7xl 2xl:text-8xl font-black italic tracking-tighter mb-2 text-[#1DB954]">{battle.commonArtists}</div>
+                <div className="text-7xl 2xl:text-8xl font-black italic tracking-tighter mb-2 text-[#0ad150]">{battle.commonArtists}</div>
                 <p className="text-sm font-black uppercase tracking-wider opacity-50">Shared Favorites</p>
               </div>
               <div className="absolute -bottom-6 -right-6 text-[8rem] 2xl:text-[12rem] font-black text-zinc-100 dark:text-zinc-800 italic select-none pointer-events-none">
@@ -664,9 +662,8 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
               return (
                 <div
                   key={cat.id}
-                  className={`bg-zinc-950 dark:bg-zinc-50 text-white dark:text-zinc-900 p-8 2xl:p-10 rounded-[2.5rem] overflow-hidden relative shadow-2xl group hover:-translate-y-2 transition-all duration-500 ${
-                    index <= revealIndex ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                  }`}
+                  className={`bg-zinc-950 dark:bg-zinc-50 text-white dark:text-zinc-900 p-8 2xl:p-10 rounded-[2.5rem] overflow-hidden relative shadow-2xl group hover:-translate-y-2 transition-all duration-500 ${index <= revealIndex ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    }`}
                 >
                   <div className="absolute -bottom-4 -right-4 text-[8rem] font-black opacity-5 select-none italic leading-none pointer-events-none">
                     {cat.label}
@@ -684,7 +681,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
                     {/* Scores */}
                     <div className="flex items-center justify-between mb-3">
                       <div className="text-center min-w-[60px]">
-                        <div className={`text-5xl font-black italic leading-none ${cat.myWins ? "text-[#1DB954]" : "text-zinc-600"}`}>
+                        <div className={`text-5xl font-black italic leading-none ${cat.myWins ? "text-[#0ad150]" : "text-zinc-600"}`}>
                           {cat.myScore}
                         </div>
                         <div className="text-[10px] font-mono text-zinc-600 uppercase mt-1 truncate max-w-[80px]">
@@ -695,7 +692,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
                       <div className="text-zinc-700 dark:text-zinc-300 font-black text-sm italic px-2">VS</div>
 
                       <div className="text-center min-w-[60px]">
-                        <div className={`text-5xl font-black italic leading-none ${!cat.myWins && !cat.tie ? "text-[#1DB954]" : "text-zinc-600"}`}>
+                        <div className={`text-5xl font-black italic leading-none ${!cat.myWins && !cat.tie ? "text-[#0ad150]" : "text-zinc-600"}`}>
                           {cat.opponentScore}
                         </div>
                         <div className="text-[10px] font-mono text-zinc-600 uppercase mt-1 truncate max-w-[80px]">
@@ -707,14 +704,14 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
                     {/* Tug-of-war bar */}
                     <div className="h-2 bg-zinc-800 dark:bg-zinc-200 rounded-full overflow-hidden mb-5">
                       <div
-                        className="h-full rounded-full bg-[#1DB954] transition-all duration-1000"
+                        className="h-full rounded-full bg-[#0ad150] transition-all duration-1000"
                         style={{ width: `${myPct}%` }}
                       />
                     </div>
 
                     {/* Winner badge */}
                     {winner ? (
-                      <div className="inline-flex items-center gap-2 bg-[#1DB954]/20 text-[#1DB954] px-4 py-1.5 rounded-full">
+                      <div className="inline-flex items-center gap-2 bg-[#0ad150]/20 text-[#0ad150] px-4 py-1.5 rounded-full">
                         <span className="text-[10px] font-black uppercase tracking-widest">
                           {winner} {cat.winText}
                         </span>
@@ -735,7 +732,7 @@ export default function BattleClient({ profile }: { profile: BattleProfile }) {
             <button
               onClick={handleShare}
               disabled={sharing}
-              className="px-10 py-5 bg-[#1DB954] text-black rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300"
+              className="px-10 py-5 bg-[#0ad150] text-black rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300"
             >
               {sharing ? "Generating Image..." : "📸 Share Results"}
             </button>

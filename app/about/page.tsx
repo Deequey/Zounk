@@ -5,18 +5,18 @@ export default function ONasPage() {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans">
       <Nav />
-      
+
       {/* HERO SECTION */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1DB954]/10 to-zinc-950/5 dark:from-[#1DB954]/5 dark:to-zinc-900/50" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0ad150]/10 to-zinc-950/5 dark:from-[#0ad150]/5 dark:to-zinc-900/50" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-[18vw] font-black text-zinc-200/50 dark:text-zinc-800/50 italic tracking-tighter select-none leading-none">
             ABOUT
           </div>
         </div>
-        
+
         <div className="relative z-10 text-center max-w-4xl 2xl:max-w-6xl px-6">
-          <p className="text-[#1DB954] font-mono text-xs 2xl:text-sm font-bold uppercase tracking-[0.4em] mb-6 opacity-70">
+          <p className="text-[#0ad150] font-mono text-xs 2xl:text-sm font-bold uppercase tracking-[0.4em] mb-6 opacity-70">
             Our Philosophy
           </p>
           <h1 className="text-6xl md:text-8xl 2xl:text-9xl font-black tracking-tighter italic uppercase leading-none mb-8">
@@ -30,14 +30,14 @@ export default function ONasPage() {
 
       {/* Zmieniony tag <main>: Pełna szerokość i responsywne paddingi boczne */}
       <main className="w-full px-6 md:px-16 lg:px-24 2xl:px-40 py-16 mx-auto">
-        
+
         {/* MISSION & VALUES GRID */}
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 2xl:gap-12 mb-32">
           {/* MISSION CARD */}
           <div className="lg:col-span-2 group bg-zinc-950 dark:bg-zinc-50 text-white dark:text-black p-10 md:p-16 2xl:p-24 rounded-[2.5rem] shadow-xl relative overflow-hidden transition-all duration-500">
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-3 h-3 bg-[#1DB954] rounded-full animate-pulse" />
+                <div className="w-3 h-3 bg-[#0ad150] rounded-full animate-pulse" />
                 <h2 className="text-3xl 2xl:text-4xl font-black uppercase italic tracking-tighter">Our Mission</h2>
               </div>
               <div className="space-y-6 max-w-xl 2xl:max-w-3xl">
@@ -55,7 +55,7 @@ export default function ONasPage() {
           </div>
 
           {/* VALUES QUICK GRID */}
-          <div className="bg-[#1DB954] text-black p-10 2xl:p-16 rounded-[2.5rem] shadow-xl shadow-[#1db954]/20 flex flex-col justify-center">
+          <div className="bg-[#0ad150] text-black p-10 2xl:p-16 rounded-[2.5rem] shadow-xl shadow-[#0ad150]/20 flex flex-col justify-center">
             <h3 className="text-2xl 2xl:text-3xl font-black mb-8 uppercase italic tracking-tighter">Values</h3>
             <div className="space-y-4 2xl:space-y-6">
               {['Passion', 'Rivalry', 'Discovery', 'Fun'].map((val) => (
@@ -75,16 +75,16 @@ export default function ONasPage() {
               <h2 className="text-6xl md:text-8xl 2xl:text-9xl font-black tracking-tighter italic uppercase leading-none">
                 How it works.
               </h2>
-              <div className="w-32 2xl:w-48 h-1 bg-[#1DB954] mt-4"></div>
+              <div className="w-32 2xl:w-48 h-1 bg-[#0ad150] mt-4"></div>
             </div>
             <p className="text-zinc-500 max-w-xs 2xl:max-w-sm font-mono text-xs 2xl:text-sm uppercase tracking-widest">
               Your Spotify data, decoded into personality traits, battle scores, and bragging rights.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 2xl:gap-12">
             <div className="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-10 2xl:p-16 rounded-[2.5rem] hover:scale-[1.02] transition-all duration-500 shadow-sm hover:shadow-xl">
-              <div className="w-12 h-12 2xl:w-16 2xl:h-16 bg-zinc-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#1DB954] group-hover:text-black transition-colors">
+              <div className="w-12 h-12 2xl:w-16 2xl:h-16 bg-zinc-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#0ad150] group-hover:text-black transition-colors">
                 <span className="text-xs 2xl:text-sm font-black">ML</span>
               </div>
               <h3 className="text-xl 2xl:text-2xl font-black mb-4 uppercase italic tracking-tighter">Taste Engine</h3>
@@ -94,7 +94,7 @@ export default function ONasPage() {
             </div>
 
             <div className="group bg-zinc-950 dark:bg-zinc-50 text-white dark:text-black p-10 2xl:p-16 rounded-[2.5rem] hover:scale-[1.02] transition-all duration-500 shadow-xl">
-              <div className="w-12 h-12 2xl:w-16 2xl:h-16 bg-white/10 dark:bg-black/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#1DB954] group-hover:text-black transition-colors">
+              <div className="w-12 h-12 2xl:w-16 2xl:h-16 bg-white/10 dark:bg-black/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#0ad150] group-hover:text-black transition-colors">
                 <span className="text-xs 2xl:text-sm font-black">API</span>
               </div>
               <h3 className="text-xl 2xl:text-2xl font-black mb-4 uppercase italic tracking-tighter">Spotify Cloud</h3>
@@ -104,7 +104,7 @@ export default function ONasPage() {
             </div>
 
             <div className="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-10 2xl:p-16 rounded-[2.5rem] hover:scale-[1.02] transition-all duration-500 shadow-sm hover:shadow-xl">
-              <div className="w-12 h-12 2xl:w-16 2xl:h-16 bg-zinc-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#1DB954] group-hover:text-black transition-colors">
+              <div className="w-12 h-12 2xl:w-16 2xl:h-16 bg-zinc-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#0ad150] group-hover:text-black transition-colors">
                 <span className="text-xs 2xl:text-sm font-black">RT</span>
               </div>
               <h3 className="text-xl 2xl:text-2xl font-black mb-4 uppercase italic tracking-tighter">Real-time Data</h3>
@@ -120,7 +120,7 @@ export default function ONasPage() {
           <div className="group bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black p-10 md:p-20 2xl:p-32 rounded-[3rem] shadow-2xl relative overflow-hidden">
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-[#1DB954] font-mono text-xs 2xl:text-sm font-bold uppercase tracking-[0.4em] mb-6">The Creator</p>
+                <p className="text-[#0ad150] font-mono text-xs 2xl:text-sm font-bold uppercase tracking-[0.4em] mb-6">The Creator</p>
                 <h2 className="text-5xl md:text-7xl 2xl:text-8xl font-black tracking-tighter italic uppercase leading-none mb-8">
                   Deequey.
                 </h2>
@@ -136,8 +136,8 @@ export default function ONasPage() {
                 </div>
               </div>
               <div className="hidden lg:block relative">
-                <div className="aspect-square bg-[#1DB954] rounded-[2.5rem] rotate-3 flex items-center justify-center overflow-hidden">
-                   <div className="text-black font-black text-9xl 2xl:text-[12rem] -rotate-3 opacity-20 italic">Dev</div>
+                <div className="aspect-square bg-[#0ad150] rounded-[2.5rem] rotate-3 flex items-center justify-center overflow-hidden">
+                  <div className="text-black font-black text-9xl 2xl:text-[12rem] -rotate-3 opacity-20 italic">Dev</div>
                 </div>
               </div>
             </div>
@@ -149,7 +149,7 @@ export default function ONasPage() {
 
         {/* TIMELINE / HISTORY */}
         <section className="mb-32">
-           <div className="text-center mb-20">
+          <div className="text-center mb-20">
             <h2 className="text-5xl md:text-7xl 2xl:text-8xl font-black tracking-tighter italic uppercase leading-none mb-4">
               The Road.
             </h2>
@@ -163,10 +163,10 @@ export default function ONasPage() {
               { year: '2026 Q4', title: 'Launch', desc: 'First battles fought. First verdicts delivered. A community that takes music taste seriously.' }
             ].map((step, idx) => (
               <div key={idx} className="group grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-                <div className="md:col-span-2 text-4xl 2xl:text-5xl font-black italic tracking-tighter text-zinc-300 dark:text-zinc-700 group-hover:text-[#1DB954] transition-colors">
+                <div className="md:col-span-2 text-4xl 2xl:text-5xl font-black italic tracking-tighter text-zinc-300 dark:text-zinc-700 group-hover:text-[#0ad150] transition-colors">
                   {step.year}
                 </div>
-                <div className="hidden md:block md:col-span-1 h-px bg-zinc-200 dark:bg-zinc-800 group-hover:bg-[#1DB954] transition-colors"></div>
+                <div className="hidden md:block md:col-span-1 h-px bg-zinc-200 dark:bg-zinc-800 group-hover:bg-[#0ad150] transition-colors"></div>
                 <div className="md:col-span-9 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8 2xl:p-12 rounded-[2rem] group-hover:translate-x-2 transition-all duration-300 shadow-sm hover:shadow-lg">
                   <h3 className="text-xl 2xl:text-2xl font-black uppercase italic tracking-tighter mb-2">{step.title}</h3>
                   <p className="text-zinc-600 dark:text-zinc-400 text-sm 2xl:text-base">{step.desc}</p>
@@ -177,7 +177,7 @@ export default function ONasPage() {
         </section>
 
         {/* STATS SECTION */}
-        <section className="bg-[#1DB954] text-black p-12 md:p-20 2xl:p-32 rounded-[3rem] shadow-xl shadow-[#1db954]/20 relative overflow-hidden mb-32">
+        <section className="bg-[#0ad150] text-black p-12 md:p-20 2xl:p-32 rounded-[3rem] shadow-xl shadow-[#0ad150]/20 relative overflow-hidden mb-32">
           <div className="relative z-10">
             <h2 className="text-4xl 2xl:text-5xl font-black mb-16 text-center uppercase italic tracking-tighter">
               In Numbers
@@ -216,12 +216,12 @@ export default function ONasPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center px-6">
             <Link
               href="/stats"
-              className="bg-[#1DB954] text-black px-10 py-5 2xl:px-14 2xl:py-6 rounded-2xl font-black text-sm 2xl:text-base uppercase tracking-widest hover:scale-105 transition-all duration-300 shadow-xl shadow-[#1db954]/20"
+              className="bg-[#0ad150] text-black px-10 py-5 2xl:px-14 2xl:py-6 rounded-2xl font-black text-sm 2xl:text-base uppercase tracking-widest hover:scale-105 transition-all duration-300 shadow-xl shadow-[#0ad150]/20"
             >
               Connect Spotify
             </Link>
             <Link
-              href="/bitwy"
+              href="/battles"
               className="bg-zinc-950 dark:bg-zinc-50 text-white dark:text-black px-10 py-5 2xl:px-14 2xl:py-6 rounded-2xl font-black text-sm 2xl:text-base uppercase tracking-widest hover:scale-105 transition-all duration-300"
             >
               Start a Battle

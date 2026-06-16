@@ -77,11 +77,11 @@ export default async function BitwyPage() {
 
   const avgTrackYear = tracks.length
     ? Math.round(
-        tracks.reduce((s, t) => {
-          const y = parseInt(t.album?.release_date?.slice(0, 4) || "2020");
-          return s + (isNaN(y) ? 2020 : y);
-        }, 0) / tracks.length
-      )
+      tracks.reduce((s, t) => {
+        const y = parseInt(t.album?.release_date?.slice(0, 4) || "2020");
+        return s + (isNaN(y) ? 2020 : y);
+      }, 0) / tracks.length
+    )
     : 2020;
 
   const profile = {
@@ -96,7 +96,7 @@ export default async function BitwyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans selection:bg-[#1DB954] selection:text-black">
+    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans selection:bg-[#0ad150] selection:text-black">
       <Nav />
       <BattleClient profile={profile} />
     </div>

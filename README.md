@@ -120,7 +120,7 @@ zounk/
 ## 🎨 Design System
 
 ### Kolory
-- **Primary**: `#1DB954` (Spotify Green)
+- **Primary**: `#0ad150` (Spotify Green)
 - **Dark**: `#0a0a0a` - `#171717`
 - **Light**: `#ffffff` - `#f4f4f5`
 - **Accent**: `#27272a` - `#3f3f46`
