@@ -137,9 +137,9 @@ export const Footer = () => {
 
             {/* 3. WIELKI NAPIS TŁA */}
             <div className="mt-32 relative">
-                <h1 className="text-[25vw] font-black italic uppercase tracking-tighter leading-none select-none
-                    text-transparent bg-clip-text bg-gradient-to-t from-zinc-100 to-transparent dark:from-zinc-900
-                    hover:from-[#1DB954]/20 transition-all duration-1000 cursor-default">
+                <h1 className="text-[23vw] font-black italic uppercase tracking-tighter leading-none select-none
+                    text-transparent bg-clip-text bg-gradient-to-t from-zinc-100 to-transparent dark:from-zinc-800
+                    hover:from-[#1DB954]/30 transition-all duration-1000">
                     zounk
                 </h1>
 

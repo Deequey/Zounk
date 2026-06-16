@@ -35,7 +35,7 @@ export async function Nav() {
             <Link
               key={href}
               href={href}
-              className="px-5 2xl:px-8 py-2 text-[10px] 2xl:text-xs font-black uppercase tracking-widest text-zinc-500 dark:text-zinc-400 transition-all hover:text-[#0ad150] dark:hover:text-[#0ad150] relative group"
+              className="px-5 2xl:px-8 py-2 text-[10px] 2xl:text-xs font-black uppercase tracking-widest text-zinc-500 dark:text-zinc-400 transition-all hover:text-[#0ad150] dark:hover:text-[#0ad150] relative group cursor-cell"
             >
               <span className="relative z-10">{label}</span>
               <div className="absolute bottom-0 left-5 right-5 h-0.5 bg-[#0ad150] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
@@ -55,7 +55,7 @@ export async function Nav() {
                 <span className="text-[8px] 2xl:text-[10px] font-mono text-[#0ad150] uppercase tracking-widest mt-1">Active</span>
               </div>
 
-              <div className="relative group cursor-pointer">
+              <div className="relative group cursor-cell">
                 <img
                   src={session.user?.image || ""}
                   alt="Avatar"
@@ -72,7 +72,7 @@ export async function Nav() {
             </div>
           ) : (
             <form action={async () => { "use server"; await signIn("spotify"); }}>
-              <button type="submit" className="flex items-center gap-3 rounded-2xl bg-[#0ad150] px-6 py-3 2xl:px-8 2xl:py-4 text-[10px] 2xl:text-xs font-black uppercase tracking-widest text-black transition-all hover:scale-105 hover:shadow-[0_0_25px_rgba(29,185,84,0.45)] active:scale-95 duration-300 cursor-pointer">
+              <button type="submit" className="flex items-center gap-3 rounded-2xl bg-[#0ad150] px-6 py-3 2xl:px-8 2xl:py-4 text-[10px] 2xl:text-xs font-black uppercase tracking-widest text-black transition-all hover:scale-105 hover:shadow-[0_0_25px_rgba(29,185,84,0.45)] active:scale-95 duration-300 cursor-cell">
                 <span className="hidden sm:inline">Connect Spotify</span>
                 <span className="text-sm 2xl:text-base">🎵</span>
               </button>
@@ -81,7 +81,7 @@ export async function Nav() {
 
           {/* MOBILE MENU TOGGLE (Checkbox hack with valid HTML layout) */}
           <input type="checkbox" id="mobile-menu" className="peer hidden" />
-          
+
           <label
             htmlFor="mobile-menu"
             className="lg:hidden flex h-10 w-10 flex-col items-center justify-center gap-1.5 cursor-pointer bg-zinc-100 dark:bg-zinc-900 rounded-2xl hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors z-[120] relative
